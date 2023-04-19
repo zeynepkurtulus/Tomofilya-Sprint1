@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">TomofilyaSprint1</string>
+    <string name="welcome_text">Selam Tomofilya\'ya Hoşgeldin !</string>
+    <string name="tv_name_surname">     Ad - Soyad</string>
+    <string name="email">     Email</string>
+    <string name="password">     Parola</string>
+    <string name="register"> Kayıt Ol</string>
+    <string name="login">Giriş Yap</string>
+    <string name="check_box_text">Tomofilya ürün ve hizmetleri ile ilgili ticari elektronik ileti (e-posta ve sms) almak istiyorum.</string>
+    <string name="user_contract">Uygulamaya üye olarak; Üyelik Sözleşmesi’ni ve Kişisel Veriler ile İlgili Aydınlatma Metni’ni okuduğunuzu ve kabul ettiğinizi onaylamaktasınız.</string>
+    <string name="or_part">     ya da   </string>
+    <string name="cont_w_google">        Google ile Devam Et</string>
+    <string name="cont_w_apple">       Apple ile Devam Et</string>
+    <string name="did_you_forgot_password">Parolanı mı unuttun?</string>
+    <string name="forgot_password">Parolamı Unuttum</string>
+    <string name="enter_email">Mailini Gir</string>
+    <string name="send_email_description">Sana parola yenileme linki göndermemiz için mail adresini girmelisin.</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="send">Gönder</string>
+    <string name="image">görsel</string>
+    <string name="register_or_login">Kayıt Ol / Giriş Yap</string>
+    <string name="start_using">Kullanmaya Başla</string>
+    <string name="confirm_email">Mail Doğrulama</string>
+    <string name="check_mail_text">Mailini Kontrol Et</string>
+    <string name="check_mail_info">Mail adresine gönderdiğimiz 4 haneli kodu girmelisin</string>
+    <string name="did_you_receive">Kodu almadın mı?</string>
+    <string name="send_again">Yeniden Gönder</string>
+    <string name="reset_pass">Parola Sıfırlama</string>
+    <string name="new_pass">Yeni Parola</string>
+    <string name="repeat_pass">Tekrar Yeni Parola</string>
+    <string name="change_pass">Parolayı Değiştir</string>
+    <string name="server_client_id">...e4p8.apps.googleusercontent.com</string>
+</resources>
