@@ -1,30 +1,22 @@
-package com.sabanciuniv.tomofilyasprint1.activities
+package com.sabanciuniv.tomofilyasprint1.ActivitiesModel
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.Auth
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.sabanciuniv.tomofilyasprint1.R
-import com.sabanciuniv.tomofilyasprint1.api.APIRequest
-import com.sabanciuniv.tomofilyasprint1.api.AuthenticationLoginRequest
-import com.sabanciuniv.tomofilyasprint1.api.AuthenticationLoginWithGoogleAppleRequest
-import com.sabanciuniv.tomofilyasprint1.api.Constants
-import com.sabanciuniv.tomofilyasprint1.data.AuthenticationSocial.AuthenticationLoginDataResponse
+import com.sabanciuniv.tomofilyasprint1.ViewModel.LoginActivityViewModel
 import kotlinx.android.synthetic.main.activity_login.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var viewModel : LoginActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(com.sabanciuniv.tomofilyasprint1.R.layout.activity_login)
         
@@ -34,24 +26,26 @@ class LoginActivity : AppCompatActivity() {
         switch_login.typeface = typeFace
         switch_register.typeface = typeFace
         cont_w_google.typeface = typeFace
-        cont_w_apple.typeface = typeFace
         text_or.typeface = typeFace
         login_email.typeface = typeFace
         login_pass.typeface = typeFace
-
-        switch_login.setOnClickListener {
-            startActivity(Intent(this, WelcomePage::class.java))
+        viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)
+        viewModel.setContext(this)
+        switch_login.setOnClickListener{
+            startActivity(Intent(this@LoginActivity, WelcomePage::class.java))
             finish()
         }
         log_in_button.setOnClickListener {
-            loginUser()
+            val login_email : String = login_email.text.toString()
+            val login_pass : String = login_pass.text.toString()
+            viewModel.loginUser(login_email, login_pass)
         }
 
 
 
         cont_w_google.setOnClickListener {
 
-            loginUser()
+            signIn()
         }
 
         forget_pass.setOnClickListener {
@@ -59,6 +53,8 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    /*
 
     private fun loginUser(){
 
@@ -107,6 +103,8 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+     */
+
 
     private fun signIn() {
         val gso : GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -120,13 +118,23 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == 1000) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
-            task.getResult(ApiException::class.java)
-            navigateToSecondActivity()
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+                try {
+                    val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
+                    navigateToSecondActivity()
+                } catch (e: ApiException) {
+                    // Handle the exception
+                    // You can display an error message or take appropriate action
+                    e.printStackTrace()
+                }
+            } else {
+                // Handle the case when the sign-in process was canceled or failed
+                // You can display an error message or take appropriate action
+                // For example, you might want to call super.onBackPressed() here
+
+            }
         }
     }
 

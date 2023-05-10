@@ -1,30 +1,27 @@
-package com.sabanciuniv.tomofilyasprint1.activities
+package com.sabanciuniv.tomofilyasprint1.ActivitiesModel
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import com.sabanciuniv.tomofilyasprint1.R
-import com.sabanciuniv.tomofilyasprint1.api.APIRequest
-import com.sabanciuniv.tomofilyasprint1.api.Constants
-import com.sabanciuniv.tomofilyasprint1.api.UserPostRequest
-import com.sabanciuniv.tomofilyasprint1.api.UserResetPasswordRequest
-import com.sabanciuniv.tomofilyasprint1.data.UserPasswordReset.UserPasswordResetResponse
-import com.sabanciuniv.tomofilyasprint1.data.UserPost.UserPostResponse
+import com.sabanciuniv.tomofilyasprint1.ViewModel.ResetPasswordViewModel
 import kotlinx.android.synthetic.main.activity_reset_password.*
-import kotlinx.android.synthetic.main.activity_welcome_page.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ResetPassword : AppCompatActivity() {
+    private lateinit var viewModel : ResetPasswordViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
+
+
+        viewModel = ViewModelProvider(this).get(ResetPasswordViewModel::class.java)
+        viewModel.setContext(this)
         change_pass.setOnClickListener {
-            resetPassword()
+            val email: String = intent.getStringExtra("email").toString()
+            val code : String = intent.getStringExtra("code").toString()
+            val pass : String = new_pass.text.toString()
+            viewModel.resetPassword(email, code, pass)
             finish()
         }
 
@@ -34,6 +31,8 @@ class ResetPassword : AppCompatActivity() {
         }
     }
 
+
+    /*
 
     private fun resetPassword(){
 
@@ -86,6 +85,8 @@ class ResetPassword : AppCompatActivity() {
         }
 
     }
+
+     */
 
 
 }

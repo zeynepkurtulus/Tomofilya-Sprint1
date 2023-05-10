@@ -15,63 +15,56 @@
         android:theme="@style/Theme.TomofilyaSprint1"
         tools:targetApi="31">
         <activity
-            android:name=".activities.GoogleLoginCheck"
+            android:name=".ActivitiesModel.ConfirmEmailWhenForgotPassword"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ConfirmEmailWhenForgotPassword"
+            android:name=".ActivitiesModel.ResetPassword"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ResetPassword"
+            android:name=".ActivitiesModel.ConfirmEmail"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ConfirmEmail"
+            android:name=".ActivitiesModel.ForgotPassword"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ForgotPassword"
+            android:name=".ActivitiesModel.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".ActivitiesModel.ScrollableGalleryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ScrollableGalleryActivity"
+            android:name=".ActivitiesModel.SplashScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.SplashScreen"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activities.SplashActivity"
+            android:name=".ActivitiesModel.SplashActivity"
             android:exported="true">
 
             <intent-filter>
@@ -84,14 +77,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.WelcomePage"
+            android:name=".ActivitiesModel.WelcomePage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ActivitiesModel.MainActivity"
             android:exported="false">
 
             <meta-data

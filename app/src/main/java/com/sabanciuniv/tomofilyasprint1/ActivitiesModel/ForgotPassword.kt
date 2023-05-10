@@ -1,20 +1,19 @@
-package com.sabanciuniv.tomofilyasprint1.activities
+package com.sabanciuniv.tomofilyasprint1.ActivitiesModel
 
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import com.sabanciuniv.tomofilyasprint1.R
-import com.sabanciuniv.tomofilyasprint1.api.APIRequest
-import com.sabanciuniv.tomofilyasprint1.api.Constants
-import com.sabanciuniv.tomofilyasprint1.data.UserSendVerificationCode.UserSendVerificationCodeResponse
+import com.sabanciuniv.tomofilyasprint1.ViewModel.ForgotPasswordViewModel
 import kotlinx.android.synthetic.main.activity_forgot_password.*
-import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ForgotPassword : AppCompatActivity() {
+    private lateinit var viewModel : ForgotPasswordViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
+        viewModel = ViewModelProvider(this).get(ForgotPasswordViewModel::class.java)
+        viewModel.setContext(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
         val typeFace : Typeface = Typeface.createFromAsset(assets,"Poppins-Regular.ttf")
@@ -25,7 +24,8 @@ class ForgotPassword : AppCompatActivity() {
         btn_send.typeface = typeFace
 
         btn_send.setOnClickListener {
-            forgotPassSendVerifyCode(forgot_pass_email_field.text.toString())
+            viewModel.forgotPassSendVerifyCode(forgot_pass_email_field.text.toString())
+            //forgotPassSendVerifyCode(forgot_pass_email_field.text.toString())
         }
 
         btn_cancel.setOnClickListener {
@@ -35,7 +35,7 @@ class ForgotPassword : AppCompatActivity() {
     }
 
 
-
+ /*
 
     private fun forgotPassSendVerifyCode(email : String){
 
@@ -80,4 +80,6 @@ class ForgotPassword : AppCompatActivity() {
         }
 
     }
+
+  */
 }

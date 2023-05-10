@@ -1,4 +1,4 @@
-package com.sabanciuniv.tomofilyasprint1.api
+package com.sabanciuniv.tomofilyasprint1.data.api
 
 object Constants {
     const val baseURL = "https://tomofilya.azurewebsites.net/"

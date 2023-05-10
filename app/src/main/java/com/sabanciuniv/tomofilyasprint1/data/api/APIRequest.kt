@@ -1,4 +1,4 @@
-package com.sabanciuniv.tomofilyasprint1.api
+package com.sabanciuniv.tomofilyasprint1.data.api
 
 import com.sabanciuniv.tomofilyasprint1.data.AuthenticationSocial.AuthenticationLoginDataResponse
 import com.sabanciuniv.tomofilyasprint1.data.UserPasswordReset.UserPasswordResetResponse

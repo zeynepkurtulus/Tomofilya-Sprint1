@@ -6,7 +6,7 @@
     android:background="@color/black"
     android:layout_gravity="center"
     android:layout_height="match_parent"
-    tools:context=".activities.ConfirmEmail">
+    tools:context=".ActivitiesModel.ConfirmEmail">
     
     <TextView
         android:id="@+id/text_confirm_email"
@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_confirm_email">
-        
+
     </TextView>
     <TextView
         android:id="@+id/check_mail_desc"

@@ -1,5 +1,6 @@
-package com.sabanciuniv.tomofilyasprint1.activities
+package com.sabanciuniv.tomofilyasprint1.ActivitiesModel
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -15,15 +16,22 @@ import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.sabanciuniv.tomofilyasprint1.R
-import com.sabanciuniv.tomofilyasprint1.api.APIRequest
-import com.sabanciuniv.tomofilyasprint1.api.Constants
-import com.sabanciuniv.tomofilyasprint1.api.UserPostRequest
+import com.sabanciuniv.tomofilyasprint1.ViewModel.WelcomePageViewModel
+import com.sabanciuniv.tomofilyasprint1.data.api.APIRequest
+import com.sabanciuniv.tomofilyasprint1.data.api.Constants
+import com.sabanciuniv.tomofilyasprint1.data.api.UserPostRequest
 import com.sabanciuniv.tomofilyasprint1.data.UserPost.UserPostResponse
 import kotlinx.android.synthetic.main.activity_welcome_page.*
-import kotlinx.android.synthetic.main.activity_welcome_page.cont_w_apple
 import kotlinx.android.synthetic.main.activity_welcome_page.cont_w_google
 import kotlinx.android.synthetic.main.activity_welcome_page.switch_login
 import kotlinx.android.synthetic.main.activity_welcome_page.switch_register
@@ -35,7 +43,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class WelcomePage : AppCompatActivity() {
+    private lateinit var viewModel : WelcomePageViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome_page)
         val typeFace : Typeface =Typeface.createFromAsset(assets,"Poppins-Regular.ttf")
@@ -44,14 +55,15 @@ class WelcomePage : AppCompatActivity() {
         switch_login.typeface = typeFace
         switch_register.typeface = typeFace
         passfield.typeface = typeFace
-        emailfield.typeface = typeFace
-        namefield.typeface = typeFace
+        email_txt.typeface = typeFace
+        name_surname_txt.typeface = typeFace
         register.typeface = typeFace
         text_or.typeface = typeFace
         setColor(user_contract)
         cont_w_google.typeface = typeFace
-        cont_w_apple.typeface = typeFace
 
+        viewModel = ViewModelProvider(this).get(WelcomePageViewModel::class.java)
+        viewModel.setContext(this)
 
 
 
@@ -62,7 +74,14 @@ class WelcomePage : AppCompatActivity() {
 
         register.setOnClickListener {
             if (checkBoxChecker(checkBox)){
-                sendVerificationCode()
+                //sendVerificationCode()
+                Log.e("onclick girdi" ,"success")
+                Log.e(name_surname_txt.text.toString(), "name")
+                Log.e(email_txt.text.toString(), "email")
+                Log.e(password_txt.text.toString(), "password")
+                name_surname_txt.text.toString()
+                viewModel.sendVerificationCode(name_surname_txt.text.toString(),email_txt.text.toString(), password_txt.text.toString())
+                //sendVerificationCode()
             }
             else{
                 Toast.makeText(this, "Lütfen Hüküm ve Koşulları Kabul Ediniz", Toast.LENGTH_LONG).show()
@@ -71,6 +90,9 @@ class WelcomePage : AppCompatActivity() {
         }
 
 
+        cont_w_google.setOnClickListener {
+            signIn()
+        }
 
 
     }
@@ -98,6 +120,8 @@ class WelcomePage : AppCompatActivity() {
     private fun checkBoxChecker(checkBox: CheckBox): Boolean{
         return checkBox.isChecked
     }
+
+
 
     private fun sendVerificationCode(){
 
@@ -154,6 +178,9 @@ class WelcomePage : AppCompatActivity() {
     }
 
 
+
+
+
     fun showErrorSnackBar(message : String){
         val snackBar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
         val snackBarView = snackBar.view // need this to set an individual background color
@@ -182,6 +209,45 @@ class WelcomePage : AppCompatActivity() {
         }
 
     }
+
+    private fun signIn() {
+        val gso : GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+        val gsc : GoogleSignInClient = GoogleSignIn.getClient(this, gso)
+        val signInIntent : Intent = gsc.signInIntent
+        startActivityForResult(signInIntent, 1000)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1000) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+                try {
+                    val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
+                    navigateToSecondActivity()
+                } catch (e: ApiException) {
+                    // Handle the exception
+                    // You can display an error message or take appropriate action
+                    e.printStackTrace()
+                }
+            } else {
+                // Handle the case when the sign-in process was canceled or failed
+                // You can display an error message or take appropriate action
+                // For example, you might want to call super.onBackPressed() here
+
+            }
+        }
+    }
+
+    private fun navigateToSecondActivity() {
+        val intent = Intent(this@WelcomePage, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+
 
 
 }
