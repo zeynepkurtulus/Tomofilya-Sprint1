@@ -19,22 +19,25 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ConfirmEmailWhenForgotPasswordViewModel (): ViewModel() {
 
     private lateinit var ctx: Context
-    private var email: String? = null
+    //private var email: String? = null
     fun setContext(ctx: Context){
         this.ctx = ctx
     }
 
-    private fun setEmail(email : String){
+    /*
+    fun setEmail(email : String){
         this.email = email
     }
     private fun getEmail(): String{
         return email!!
     }
 
+     */
 
 
 
-    fun emailConfirm(d1 : String, d2 : String, d3: String, d4 : String) {
+
+    fun emailConfirm(d1 : String, d2 : String, d3: String, d4 : String, email : String) {
         try {
             val retrofitBuilder = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -42,7 +45,7 @@ class ConfirmEmailWhenForgotPasswordViewModel (): ViewModel() {
                 .build()
                 .create(APIRequest::class.java)
 
-            val emailHolder : String = getEmail()
+            //val emailHolder : String = getEmail()
             //val code = intent.getStringExtra("message").toString()
 
 
@@ -55,10 +58,10 @@ class ConfirmEmailWhenForgotPasswordViewModel (): ViewModel() {
              */
             val code : String =  d1 + d2 + d3 + d4
             Log.e("ConfirmEmail", "message: $code")
-            Log.e("Email is: ", "$emailHolder")
+            Log.e("Email is: ", "$email")
 
 
-            val request = UserVerifyCodeRequest(emailHolder, code)
+            val request = UserVerifyCodeRequest(email, code)
 
             val retrofitData = retrofitBuilder.verify(request)
             Log.e("verification process", "going...")

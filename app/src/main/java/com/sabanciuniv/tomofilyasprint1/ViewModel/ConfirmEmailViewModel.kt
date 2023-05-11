@@ -16,12 +16,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ConfirmEmailViewModel (): ViewModel(){
     private lateinit var ctx: Context
-    private var email: String? = null
+    //private var email: String? = null
     fun setContext(ctx: Context){
         this.ctx = ctx
     }
 
 
+    /*
     private fun setEmail(email : String){
         this.email = email
     }
@@ -29,7 +30,9 @@ class ConfirmEmailViewModel (): ViewModel(){
          return email!!
     }
 
-    fun emailConfirm(d1: String, d2 : String, d3 : String, d4: String) {
+     */
+
+    fun emailConfirm(d1: String, d2 : String, d3 : String, d4: String, email : String) {
         try {
             val retrofitBuilder = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -38,7 +41,7 @@ class ConfirmEmailViewModel (): ViewModel(){
                 .create(APIRequest::class.java)
 
 
-            val emailHolder : String = getEmail()
+           // val emailHolder : String = getEmail()
             //val email: String = intent.getStringExtra("email").toString()
             //val code = intent.getStringExtra("message").toString()
             /*
@@ -62,7 +65,7 @@ class ConfirmEmailViewModel (): ViewModel(){
             Log.e("Email is: ", "$email")
 
 
-            val request = UserVerifyCodeRequest(emailHolder, code)
+            val request = UserVerifyCodeRequest(email, code)
 
             val retrofitData = retrofitBuilder.verify(request)
             Log.e("verification process", "going...")

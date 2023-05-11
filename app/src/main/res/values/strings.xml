@@ -30,4 +30,5 @@
     <string name="repeat_pass">Tekrar Yeni Parola</string>
     <string name="change_pass">Parolayı Değiştir</string>
     <string name="server_client_id">...e4p8.apps.googleusercontent.com</string>
+    <string name="please_wait">Lütfen Bekleyiniz</string>
 </resources>

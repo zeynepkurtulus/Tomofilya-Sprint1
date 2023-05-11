@@ -16,12 +16,15 @@ class ConfirmEmailWhenForgotPassword : AppCompatActivity() {
         setContentView(R.layout.activity_confirm_email_when_forgot_password)
 
         forgot_pass_btn_send_code.setOnClickListener {
+
             val d1 : String = forgot_pass_digit_1.text.toString()
             val d2 : String = forgot_pass_digit_2.text.toString()
             val d3 : String = forgot_pass_digit_3.text.toString()
             val d4 : String = forgot_pass_digit_4.text.toString()
-            viewModel.emailConfirm(d1,d2,d3,d4)
+            val email: String = intent.getStringExtra("email").toString()
+            viewModel.emailConfirm(d1,d2,d3,d4,email)
             //emailConfirm()
+
         }
 
         send_pass_again.setOnClickListener {

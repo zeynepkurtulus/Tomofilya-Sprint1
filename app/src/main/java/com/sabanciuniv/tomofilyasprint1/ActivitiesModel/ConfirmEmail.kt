@@ -19,7 +19,8 @@ class ConfirmEmail : AppCompatActivity() {
             val d2 : String = digit_2.text.toString()
             val d3 : String = digit_3.text.toString()
             val d4 : String = digit_4.text.toString()
-            viewModel.emailConfirm(d1,d2,d3,d4)
+            val email: String = intent.getStringExtra("email").toString()
+            viewModel.emailConfirm(d1,d2,d3,d4,email)
             //emailConfirm()
         }
         original_resend_pass.setOnClickListener {
