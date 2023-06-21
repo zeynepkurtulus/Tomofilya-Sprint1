@@ -1,4 +1,4 @@
-package com.sabanciuniv.tomofilyasprint1.data.UserPasswordReset
+package com.sabanciuniv.tomofilyasprint1.model.UserPasswordReset
 
 data class UserPasswordResetResponse(
     val message: String,

@@ -1,10 +1,10 @@
-package com.sabanciuniv.tomofilyasprint1.data.api
+package com.sabanciuniv.tomofilyasprint1.network
 
-import com.sabanciuniv.tomofilyasprint1.data.AuthenticationSocial.AuthenticationLoginDataResponse
-import com.sabanciuniv.tomofilyasprint1.data.UserPasswordReset.UserPasswordResetResponse
-import com.sabanciuniv.tomofilyasprint1.data.UserPost.UserPostResponse
-import com.sabanciuniv.tomofilyasprint1.data.UserSendVerificationCode.UserSendVerificationCodeResponse
-import com.sabanciuniv.tomofilyasprint1.data.UserVerifycode.UserVerifycodeResponse
+import com.sabanciuniv.tomofilyasprint1.model.AuthenticationSocial.AuthenticationLoginDataResponse
+import com.sabanciuniv.tomofilyasprint1.model.UserPasswordReset.UserPasswordResetResponse
+import com.sabanciuniv.tomofilyasprint1.model.UserPost.UserPostResponse
+import com.sabanciuniv.tomofilyasprint1.model.UserSendVerificationCode.UserSendVerificationCodeResponse
+import com.sabanciuniv.tomofilyasprint1.model.UserVerifycode.UserVerifycodeResponse
 
 import retrofit2.Call
 import retrofit2.http.*
@@ -12,9 +12,8 @@ import retrofit2.http.*
 interface APIRequest {
 
 
-
     @POST("User/Post")
-    @Headers("apikey: COF40RZ95GBJZ7R08QVJMIDR0TLEJL1DDEXY10K0H8MQ03DJJ8","Content-Type: application/json" )
+    @Headers(Constants.api, Constants.contentType )
     fun register(
         @Body request: UserPostRequest
     ): Call<UserPostResponse>
@@ -22,33 +21,33 @@ interface APIRequest {
 
 
     @POST("User/Verifycode")
-    @Headers("apikey: COF40RZ95GBJZ7R08QVJMIDR0TLEJL1DDEXY10K0H8MQ03DJJ8","Content-Type: application/json" )
+    @Headers(Constants.api, Constants.contentType)
     fun verify(
         @Body request: UserVerifyCodeRequest
     ): Call<UserVerifycodeResponse>
 
 
     @POST("Authentication/Login")
-    @Headers("apikey: COF40RZ95GBJZ7R08QVJMIDR0TLEJL1DDEXY10K0H8MQ03DJJ8","Content-Type: application/json" )
+    @Headers(Constants.api, Constants.contentType )
     fun login(
         @Body request: AuthenticationLoginRequest
     ): Call<AuthenticationLoginDataResponse>
 
 
     @POST("Authentication/Social")
-    @Headers("apikey: COF40RZ95GBJZ7R08QVJMIDR0TLEJL1DDEXY10K0H8MQ03DJJ8","Content-Type: application/json" )
+    @Headers(Constants.api, Constants.contentType )
     fun loginWithGoogleApple(
         @Body request: AuthenticationLoginWithGoogleAppleRequest
     ): Call<AuthenticationLoginDataResponse>
 
     @GET("/User/SendVerificationCode/{email}")
-    @Headers("apikey: COF40RZ95GBJZ7R08QVJMIDR0TLEJL1DDEXY10K0H8MQ03DJJ8", "Content-Type: application/json")
+    @Headers(Constants.api, Constants.contentType)
     fun userSendVerificationCode(
         @Path("email") email: String
     ): Call<UserSendVerificationCodeResponse>
 
     @POST("User/PasswordReset")
-    @Headers("apikey: COF40RZ95GBJZ7R08QVJMIDR0TLEJL1DDEXY10K0H8MQ03DJJ8","Content-Type: application/json" )
+    @Headers(Constants.api, Constants.contentType)
     fun resetPassword(
         @Body request: UserResetPasswordRequest
     ): Call<UserPasswordResetResponse>

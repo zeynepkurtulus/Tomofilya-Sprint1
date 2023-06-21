@@ -1,4 +1,4 @@
-package com.sabanciuniv.tomofilyasprint1.data.UserSendVerificationCode
+package com.sabanciuniv.tomofilyasprint1.model.UserSendVerificationCode
 
 data class UserSendVerificationCodeResponse(
     val message: String,

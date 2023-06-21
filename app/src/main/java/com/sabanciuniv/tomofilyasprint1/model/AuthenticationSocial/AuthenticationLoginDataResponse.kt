@@ -1,4 +1,4 @@
-package com.sabanciuniv.tomofilyasprint1.data.AuthenticationLogin
+package com.sabanciuniv.tomofilyasprint1.model.AuthenticationSocial
 
 data class AuthenticationLoginDataResponse(
     val `data`: DataAuthenticationLogin,

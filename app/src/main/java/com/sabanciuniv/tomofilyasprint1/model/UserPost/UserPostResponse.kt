@@ -1,4 +1,4 @@
-package com.sabanciuniv.tomofilyasprint1.data.UserPost
+package com.sabanciuniv.tomofilyasprint1.model.UserPost
 
 class UserPostResponse (
 

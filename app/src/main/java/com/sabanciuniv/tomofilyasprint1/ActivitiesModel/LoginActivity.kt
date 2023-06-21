@@ -5,105 +5,57 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.sabanciuniv.tomofilyasprint1.ViewModel.LoginActivityViewModel
-import kotlinx.android.synthetic.main.activity_login.*
+import com.sabanciuniv.tomofilyasprint1.viewModel.LoginActivityViewModel
+import com.sabanciuniv.tomofilyasprint1.databinding.ActivityLoginBinding
+
 
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel : LoginActivityViewModel
+    private lateinit var binding : ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(com.sabanciuniv.tomofilyasprint1.R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this,com.sabanciuniv.tomofilyasprint1.R.layout.activity_login)
         
         val typeFace : Typeface = Typeface.createFromAsset(assets,"Poppins-Regular.ttf")
-        forget_pass.typeface = typeFace
-        log_in_button.typeface = typeFace
-        switch_login.typeface = typeFace
-        switch_register.typeface = typeFace
-        cont_w_google.typeface = typeFace
-        text_or.typeface = typeFace
-        login_email.typeface = typeFace
-        login_pass.typeface = typeFace
+        binding.forgetPass.typeface = typeFace
+        binding.logInButton.typeface = typeFace
+        binding.switchLogin.typeface = typeFace
+        binding.switchRegister.typeface = typeFace
+        binding.contWGoogle.typeface = typeFace
+        binding.textOr.typeface = typeFace
+        binding.loginEmail.typeface = typeFace
+        binding.loginPass.typeface = typeFace
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)
         viewModel.setContext(this)
-        switch_login.setOnClickListener{
+        binding.switchLogin.setOnClickListener{
             startActivity(Intent(this@LoginActivity, WelcomePage::class.java))
             finish()
         }
-        log_in_button.setOnClickListener {
-            val login_email : String = login_email.text.toString()
-            val login_pass : String = login_pass.text.toString()
+
+
+        binding.logInButton.setOnClickListener {
+            val login_email : String = binding.loginEmail.text.toString()
+            val login_pass : String = binding.loginPass.text.toString()
             viewModel.loginUser(login_email, login_pass)
         }
 
-
-
-        cont_w_google.setOnClickListener {
+        binding.contWGoogle.setOnClickListener {
 
             signIn()
         }
 
-        forget_pass.setOnClickListener {
+        binding.forgetPass.setOnClickListener {
             startActivity(Intent(this, ForgotPassword::class.java))
             finish()
         }
     }
-
-    /*
-
-    private fun loginUser(){
-
-        try {
-            val retrofitBuilder = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.baseURL)
-                .build()
-                .create(APIRequest::class.java)
-
-                val login_email : String = login_email.text.toString()
-                val login_pass : String = login_pass.text.toString()
-
-
-            val request = AuthenticationLoginRequest(login_email, login_pass)
-
-            val retrofitData = retrofitBuilder.login(request)
-            Log.e("verification process", "going...")
-
-            retrofitData.enqueue(object: Callback<AuthenticationLoginDataResponse> {
-                override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
-                    Log.e("verification response:", "retrieving body")
-                    Log.e("verification r body", response.raw().toString())
-                    val responseBody = response.body()
-                    Log.e("verification success", responseBody?.success.toString())
-                    Log.e("verification message", responseBody?.message.toString())
-
-
-                    if (responseBody?.success == true){
-                        val intent = Intent(this@LoginActivity, WelcomePage::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-
-                }
-
-                override fun onFailure(call: Call<AuthenticationLoginDataResponse>, t: Throwable) {
-                    Log.e("verification error: ", t.toString())
-                }
-            })
-
-        } catch (e: Exception) {
-            Log.e("verification step 1: ", e.toString())
-            // Handle the exception here (e.g. log it or display an error message)
-        }
-
-    }
-
-     */
 
 
     private fun signIn() {

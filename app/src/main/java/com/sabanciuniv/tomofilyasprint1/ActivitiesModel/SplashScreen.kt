@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.sabanciuniv.tomofilyasprint1.R
+import com.sabanciuniv.tomofilyasprint1.databinding.ActivitySplashScreenBinding
+import com.sabanciuniv.tomofilyasprint1.databinding.ActivityWelcomePageBinding
 
 class SplashScreen : AppCompatActivity() {
+    private lateinit var binding : ActivitySplashScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)

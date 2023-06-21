@@ -31,4 +31,7 @@
     <string name="change_pass">Parolayı Değiştir</string>
     <string name="server_client_id">...e4p8.apps.googleusercontent.com</string>
     <string name="please_wait">Lütfen Bekleyiniz</string>
+    <string name="emailStr">email</string>
+    <string name="code">code</string>
+    <string name="acceptTerms">"Lütfen Hüküm ve Koşulları Kabul Ediniz"</string>
 </resources>
