@@ -2,6 +2,7 @@ package com.sabanciuniv.tomofilyasprint1.ActivitiesModel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.sabanciuniv.tomofilyasprint1.R
@@ -23,15 +24,20 @@ class ConfirmEmailWhenForgotPassword : AppCompatActivity() {
             val d2 : String = binding.forgotPassDigit2.text.toString()
             val d3 : String = binding.forgotPassDigit3.text.toString()
             val d4 : String = binding.forgotPassDigit4.text.toString()
-            val email: String = intent.getStringExtra(R.string.emailStr.toString()).toString()
-            viewModel.emailConfirm(d1,d2,d3,d4,email)
+            val email =  intent.getStringExtra("email")
+            Log.e("tag", "email is " + email)
+            viewModel.emailConfirm(d1,d2,d3,d4,email.toString())
             //emailConfirm()
 
         }
 
         binding.sendPassAgain.setOnClickListener {
             val email: String = intent.getStringExtra(R.string.emailStr.toString()).toString()
-            viewModel.forgotPassSendVerifyCode(email)
+            val d1 : String = binding.forgotPassDigit1.text.toString()
+            val d2 : String = binding.forgotPassDigit2.text.toString()
+            val d3 : String = binding.forgotPassDigit3.text.toString()
+            val d4 : String = binding.forgotPassDigit4.text.toString()
+            viewModel.emailConfirm(d1,d2,d3,d4,email)
         }
     }
 

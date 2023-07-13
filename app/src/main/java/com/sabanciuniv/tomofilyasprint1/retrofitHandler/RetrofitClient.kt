@@ -5,11 +5,14 @@ import android.content.Intent
 import android.util.Log
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.*
 import com.sabanciuniv.tomofilyasprint1.model.AuthenticationSocial.AuthenticationLoginDataResponse
+import com.sabanciuniv.tomofilyasprint1.model.HomeGetAll.CategoryResponse
+import com.sabanciuniv.tomofilyasprint1.model.HomeGetAll.LastVideo
 import com.sabanciuniv.tomofilyasprint1.model.UserPasswordReset.UserPasswordResetResponse
 import com.sabanciuniv.tomofilyasprint1.model.UserPost.UserPostResponse
 import com.sabanciuniv.tomofilyasprint1.model.UserSendVerificationCode.UserSendVerificationCodeResponse
 import com.sabanciuniv.tomofilyasprint1.model.UserVerifycode.UserVerifycodeResponse
 import com.sabanciuniv.tomofilyasprint1.network.*
+import com.sabanciuniv.tomofilyasprint1.network.Constants.api
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,43 +20,76 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitClient(private val ctx: Context) {
-    private val apiRequest: APIRequest
+    //val apiRequest: APIRequest
 
-    init {
+
+    // A function that generates an API request
+    fun createAPIRequest(): APIRequest {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Constants.baseURL)
             .build()
 
-        apiRequest = retrofit.create(APIRequest::class.java)
+        return retrofit.create(APIRequest::class.java)
+    }
+}
+/*
+
+   init {
+       Log.e("tag", "init içine girdi")
+       val retrofit = Retrofit.Builder()
+           .addConverterFactory(GsonConverterFactory.create())
+           .baseUrl(Constants.baseURL)
+           .build()
+
+       apiRequest = retrofit.create(APIRequest::class.java)
+   }
+
+
+   fun verifyUser(
+       email: String,
+       code: String,
+       onResponse: (UserVerifycodeResponse?) -> Unit,
+       onFailure: (Throwable) -> Unit
+   ) {
+       val request = UserVerifyCodeRequest(email, code)
+       val retrofitData = apiRequest.verify(request)
+
+       retrofitData.enqueue(object : Callback<UserVerifycodeResponse> {
+           override fun onResponse(
+               call: Call<UserVerifycodeResponse>,
+               response: Response<UserVerifycodeResponse>
+           ) {
+               onResponse(response.body())
+           }
+
+           override fun onFailure(call: Call<UserVerifycodeResponse>, t: Throwable) {
+               onFailure(t)
+           }
+       })
+   }
+
+
+    fun sendVerificationCode(
+        email: String,
+        onResponse: (UserSendVerificationCodeResponse?) -> Unit,
+        onFailure: (Throwable) -> Unit
+    ) {
+        apiRequest.userSendVerificationCode(email)
+            .enqueue(object : Callback<UserSendVerificationCodeResponse> {
+                override fun onResponse(
+                    call: Call<UserSendVerificationCodeResponse>,
+                    response: Response<UserSendVerificationCodeResponse>
+                ) {
+                    onResponse(response.body())
+                }
+
+                override fun onFailure(call: Call<UserSendVerificationCodeResponse>, t: Throwable) {
+                    onFailure(t)
+                }
+            })
     }
 
-    fun verifyUser(email: String, code: String, onResponse: (UserVerifycodeResponse?) -> Unit, onFailure: (Throwable) -> Unit) {
-        val request = UserVerifyCodeRequest(email, code)
-        val retrofitData = apiRequest.verify(request)
-
-        retrofitData.enqueue(object : Callback<UserVerifycodeResponse> {
-            override fun onResponse(call: Call<UserVerifycodeResponse>, response: Response<UserVerifycodeResponse>) {
-                onResponse(response.body())
-            }
-
-            override fun onFailure(call: Call<UserVerifycodeResponse>, t: Throwable) {
-                onFailure(t)
-            }
-        })
-    }
-
-    fun sendVerificationCode(email: String, onResponse: (UserSendVerificationCodeResponse?) -> Unit, onFailure: (Throwable) -> Unit) {
-        apiRequest.userSendVerificationCode(email).enqueue(object : Callback<UserSendVerificationCodeResponse> {
-            override fun onResponse(call: Call<UserSendVerificationCodeResponse>, response: Response<UserSendVerificationCodeResponse>) {
-                onResponse(response.body())
-            }
-
-            override fun onFailure(call: Call<UserSendVerificationCodeResponse>, t: Throwable) {
-                onFailure(t)
-            }
-        })
-    }
 
     fun emailConfirm(d1: String, d2: String, d3: String, d4: String, email: String) {
         val code: String = d1 + d2 + d3 + d4
@@ -75,6 +111,7 @@ class RetrofitClient(private val ctx: Context) {
         )
     }
 
+
     fun forgotPassSendVerifyCodeEmailForgot(email: String) {
         sendVerificationCode(email,
             onResponse = { response ->
@@ -95,6 +132,9 @@ class RetrofitClient(private val ctx: Context) {
     }
 
 
+
+
+
     fun forgotPassSendVerifyCode(email: String) {
         sendVerificationCode(email,
             onResponse = { response ->
@@ -103,9 +143,6 @@ class RetrofitClient(private val ctx: Context) {
 
                 if (response?.success == true) {
                     Log.e("Success", "Forgot My Password")
-                    val intent = Intent(ctx, ConfirmEmailWhenForgotPassword::class.java)
-                    intent.putExtra("email", email)
-                    ctx.startActivity(intent)
                 }
             },
             onFailure = { t ->
@@ -120,7 +157,10 @@ class RetrofitClient(private val ctx: Context) {
         val retrofitData = apiRequest.login(request)
 
         retrofitData.enqueue(object : Callback<AuthenticationLoginDataResponse> {
-            override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
+            override fun onResponse(
+                call: Call<AuthenticationLoginDataResponse>,
+                response: Response<AuthenticationLoginDataResponse>
+            ) {
                 Log.e("verification response:", "retrieving body")
                 Log.e("verification r body", response.raw().toString())
                 val responseBody = response.body()
@@ -128,7 +168,7 @@ class RetrofitClient(private val ctx: Context) {
                 Log.e("verification message", responseBody?.message.toString())
 
                 if (responseBody?.success == true) {
-                    val intent = Intent(ctx, WelcomePage::class.java)
+                    val intent = Intent(ctx, HomePage::class.java)
                     ctx.startActivity(intent)
                 }
             }
@@ -140,12 +180,16 @@ class RetrofitClient(private val ctx: Context) {
     }
 
 
+
     fun resetPassword(email: String, code: String, password: String) {
         val request = UserResetPasswordRequest(email, code, password)
         val retrofitData = apiRequest.resetPassword(request)
 
         retrofitData.enqueue(object : Callback<UserPasswordResetResponse> {
-            override fun onResponse(call: Call<UserPasswordResetResponse>, response: Response<UserPasswordResetResponse>) {
+            override fun onResponse(
+                call: Call<UserPasswordResetResponse>,
+                response: Response<UserPasswordResetResponse>
+            ) {
                 Log.e("verification response:", "retrieving body")
                 Log.e("verification r body", response.raw().toString())
                 val responseBody = response.body()
@@ -165,12 +209,22 @@ class RetrofitClient(private val ctx: Context) {
     }
 
 
-    fun registerUser(name: String, email: String, password: String, isOpenNotification: Boolean, onSuccess: () -> Unit) {
+
+    fun registerUser(
+        name: String,
+        email: String,
+        password: String,
+        isOpenNotification: Boolean,
+        onSuccess: () -> Unit
+    ) {
         val request = UserPostRequest(name, email, password, isOpenNotification)
         val retrofitData = apiRequest.register(request)
 
         retrofitData.enqueue(object : Callback<UserPostResponse> {
-            override fun onResponse(call: Call<UserPostResponse>, response: Response<UserPostResponse>) {
+            override fun onResponse(
+                call: Call<UserPostResponse>,
+                response: Response<UserPostResponse>
+            ) {
                 Log.e("verification response:", "retrieving body")
                 Log.e("verification r body", response.raw().toString())
                 val responseBody = response.body()
@@ -190,4 +244,13 @@ class RetrofitClient(private val ctx: Context) {
             }
         })
     }
+
+
+
+
+
+
+
 }
+
+ */

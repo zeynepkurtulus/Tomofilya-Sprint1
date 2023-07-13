@@ -1,5 +1,6 @@
 package com.sabanciuniv.tomofilyasprint1.ActivitiesModel
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
-           // startActivity(Intent(this, SplashScreen::class.java))
+            startActivity(Intent(this, SplashScreen::class.java))
 
     }
 

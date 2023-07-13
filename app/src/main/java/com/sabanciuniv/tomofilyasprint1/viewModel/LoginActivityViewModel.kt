@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.ConfirmEmailWhenForgotPassword
+import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.HomePage
+import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.SplashActivity
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.WelcomePage
 import com.sabanciuniv.tomofilyasprint1.network.APIRequest
 import com.sabanciuniv.tomofilyasprint1.network.AuthenticationLoginRequest
@@ -20,16 +23,57 @@ import retrofit2.converter.gson.GsonConverterFactory
 class LoginActivityViewModel (): ViewModel(){
 
     private lateinit var ctx: Context
-    private val retrofitClient = RetrofitClient(ctx)
+    private lateinit var retrofitClient: RetrofitClient
     fun setContext(ctx: Context){
         this.ctx = ctx
+        retrofitClient = RetrofitClient(ctx)
     }
 
 
+    fun loginUser(email: String, password: String) {
+        try {
 
-    fun loginUser(login_email: String, login_pass: String) {
-        retrofitClient.loginUser(login_email, login_pass)
+            /*
+            val retrofitBuilder = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(Constants.baseURL)
+                .build()
+                .create(APIRequest::class.java)
+
+             */
+            val retrofitBuilder = retrofitClient.createAPIRequest()
+            val request = AuthenticationLoginRequest(email, password)
+            val retrofitData = retrofitBuilder.login(request)
+            Log.e("Home process", "going...")
+            retrofitData.enqueue(object: Callback<AuthenticationLoginDataResponse> {
+                override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
+
+                    val responseBody = response.body()
+                    Log.d("response body" , responseBody.toString())
+
+                    if(responseBody?.success  == true){
+                        //TODO get the daha at place it
+                        val intent = Intent(ctx, HomePage::class.java)
+                        ctx.startActivity(intent)
+                    }
+                    else{
+                        Log.e("Login error)" , responseBody?.success.toString())
+                        Log.e("Login error)" , responseBody?.message.toString())
+
+                    }
+                }
+
+                override fun onFailure(call: Call<AuthenticationLoginDataResponse>, t: Throwable) {
+                    Log.e("Login error: ", t.toString())
+                }
+            })
+
+        } catch (e: Exception) {
+            Log.e("Login api error: ", e.toString())
+            // Handle the exception here (e.g. log it or display an error message)
+        }
     }
+
 
 
 }

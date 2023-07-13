@@ -4,15 +4,26 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.sabanciuniv.tomofilyasprint1.R
 import com.sabanciuniv.tomofilyasprint1.viewModel.LoginActivityViewModel
 import com.sabanciuniv.tomofilyasprint1.databinding.ActivityLoginBinding
-
+import com.sabanciuniv.tomofilyasprint1.model.AuthenticationSocial.AuthenticationLoginDataResponse
+import com.sabanciuniv.tomofilyasprint1.network.APIRequest
+import com.sabanciuniv.tomofilyasprint1.network.AuthenticationLoginRequest
+import com.sabanciuniv.tomofilyasprint1.network.Constants
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class LoginActivity : AppCompatActivity() {
@@ -22,29 +33,23 @@ class LoginActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,com.sabanciuniv.tomofilyasprint1.R.layout.activity_login)
-        
-        val typeFace : Typeface = Typeface.createFromAsset(assets,"Poppins-Regular.ttf")
-        binding.forgetPass.typeface = typeFace
-        binding.logInButton.typeface = typeFace
-        binding.switchLogin.typeface = typeFace
-        binding.switchRegister.typeface = typeFace
-        binding.contWGoogle.typeface = typeFace
-        binding.textOr.typeface = typeFace
-        binding.loginEmail.typeface = typeFace
-        binding.loginPass.typeface = typeFace
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)
         viewModel.setContext(this)
+        val switch = findViewById<Button>(R.id.switch_login)
         binding.switchLogin.setOnClickListener{
             startActivity(Intent(this@LoginActivity, WelcomePage::class.java))
             finish()
         }
 
-
+        val loginbtn = findViewById<Button>(R.id.log_in_button)
         binding.logInButton.setOnClickListener {
-            val login_email : String = binding.loginEmail.text.toString()
-            val login_pass : String = binding.loginPass.text.toString()
+            val login_email: String = binding.loginEmail.text.toString()
+            val login_pass: String = binding.loginPass.text.toString()
+            Log.e("Email", login_email)
+            Log.e("Password", login_pass)
             viewModel.loginUser(login_email, login_pass)
         }
+
 
         binding.contWGoogle.setOnClickListener {
 
@@ -54,6 +59,46 @@ class LoginActivity : AppCompatActivity() {
         binding.forgetPass.setOnClickListener {
             startActivity(Intent(this, ForgotPassword::class.java))
             finish()
+        }
+    }
+
+
+    private fun loginUser(email: String, password: String) {
+        try {
+            val retrofitBuilder = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(Constants.baseURL)
+                .build()
+                .create(APIRequest::class.java)
+            val request = AuthenticationLoginRequest(email, password)
+            val retrofitData = retrofitBuilder.login(request)
+            Log.e("Home process", "going...")
+            retrofitData.enqueue(object: Callback<AuthenticationLoginDataResponse> {
+                override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
+
+                    val responseBody = response.body()
+                    Log.d("response body" , responseBody.toString())
+
+                    if(responseBody?.success  == true){
+                        //TODO get the daha at place it
+                        val intent = Intent(this@LoginActivity, HomePage::class.java)
+                        startActivity(intent)
+                    }
+                    else{
+                        Log.e("Login error)" , responseBody?.success.toString())
+                        Log.e("Login error)" , responseBody?.message.toString())
+
+                    }
+                }
+
+                override fun onFailure(call: Call<AuthenticationLoginDataResponse>, t: Throwable) {
+                    Log.e("Login error: ", t.toString())
+                }
+            })
+
+        } catch (e: Exception) {
+            Log.e("Login api error: ", e.toString())
+            // Handle the exception here (e.g. log it or display an error message)
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import com.sabanciuniv.tomofilyasprint1.R
 import com.sabanciuniv.tomofilyasprint1.databinding.ActivitySplashScreenBinding
 import com.sabanciuniv.tomofilyasprint1.databinding.ActivityWelcomePageBinding

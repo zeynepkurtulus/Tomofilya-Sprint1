@@ -15,7 +15,6 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:gravity="center"
-
     android:orientation="vertical"
     tools:context=".ActivitiesModel.WelcomePage">
 
@@ -211,7 +210,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/login"
-        android:onClick="@{()->loginActivityViewModel.loginUser(loginEmail.getText().toString(), loginPass.getText().toString())}"
         android:gravity="center"
         android:textAllCaps="false"
         android:textColor="@color/black"

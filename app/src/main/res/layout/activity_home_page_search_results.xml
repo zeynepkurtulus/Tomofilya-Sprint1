@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="homeSearchResultsViewModel"
+            type="com.sabanciuniv.tomofilyasprint1.viewModel.HomePageSearchResultsViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ActivitiesModel.HomePageSearchResults"
+            android:background="@color/black">
+
+            <Button
+                android:id="@+id/backBtnForResults"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.042"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/arrowicon"
+                >
+
+            </Button>
+
+            <LinearLayout
+                android:id="@+id/searchHolder"
+                android:layout_width="290dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="49dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/border_rounded">
+                <EditText
+                    android:id="@+id/searchAreaForResults"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:clickable="true"
+                    android:layout_marginTop="3dp"
+                    android:textColorHint="@android:color/white"
+                    >
+
+                </EditText>
+
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/searchBtn"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/searchHolder"
+                android:layout_marginTop="49dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginLeft="327dp"
+                android:background="@drawable/home_page_rounded"
+                android:src="@drawable/search"
+                android:layout_marginRight="20dp">
+
+            </ImageButton>
+
+
+            <TextView
+                android:id="@+id/relatedResults"
+                android:layout_width="81dp"
+                android:layout_height="17dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="37dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.051"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backBtnForResults"
+                android:textColor="@color/light_grey"
+                android:textSize="12dp"
+                android:text="@string/relatedResults">
+            </TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homePageRecView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relatedResults"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="20dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:id="@+id/general1"
+                android:layout_width="match_parent"
+                android:layout_height="138dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homePageRecView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal"
+                >
+
+
+                <LinearLayout
+                    android:background="@drawable/dark_grey_parts_background"
+                    android:id="@+id/holder1"
+                    android:layout_width="108dp"
+                    android:layout_height="138dp"
+                    app:layout_constraintStart_toStartOf="@id/general1"
+                    app:layout_constraintTop_toBottomOf="@id/onecikanlarHolder"
+                    app:layout_constraintRight_toLeftOf="@id/holder2"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginLeft="20dp"
+
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <ImageButton
+                        android:layout_width="108dp"
+                        android:layout_height="81dp"
+                        android:background="@color/image"
+                        android:src="@drawable/mask"
+                        >
+
+                    </ImageButton>
+
+                    <TextView
+                        android:id="@+id/car_brand"
+                        android:layout_width="43dp"
+                        android:layout_height="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/carBrand"
+                        android:textColor="@color/car_brand_color"
+                        android:textSize="6dp"
+                        android:layout_marginTop="6dp"
+
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_part"
+                        android:layout_width="64dp"
+                        android:layout_height="15dp"
+                        android:text="@string/carPart"
+                        android:textSize="10dp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="8dp"
+
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_price"
+                        android:layout_width="40dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/carPrice"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginBottom="9dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="@drawable/dark_grey_parts_background"
+                android:id="@+id/holder2"
+                android:layout_width="108dp"
+                android:layout_height="138dp"
+                app:layout_constraintRight_toLeftOf="@id/holder3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="141dp"
+                app:layout_constraintTop_toBottomOf="@id/homePageRecView"
+                android:layout_marginRight="13dp"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+
+                <ImageButton
+                    android:layout_width="108dp"
+                    android:layout_height="81dp"
+                    android:background="@color/image"
+                    android:src="@drawable/mask">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/car_brand2"
+                    android:layout_width="43dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/carBrand"
+                    android:textColor="@color/car_brand_color"
+                    android:textSize="6dp"
+                    android:layout_marginTop="6dp"
+
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_part2"
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:text="@string/carPart"
+                    android:textSize="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="8dp"
+
+                    >
+
+                </TextView>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/crossed_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/discountedPrice"
+                        android:textColor="@color/primary_app_color"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="8dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/car_price2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/light_grey"
+                        android:textSize="6dp"
+                        android:text="@string/carPriceStrike"
+
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="@drawable/dark_grey_parts_background"
+                android:id="@+id/holder3"
+                android:layout_width="108dp"
+                android:layout_height="138dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homePageRecView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="262dp"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+
+
+                <ImageButton
+                    android:layout_width="108dp"
+                    android:layout_height="81dp"
+                    android:background="@color/image"
+                    android:src="@drawable/mask"
+                    >
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/car_brand3"
+                    android:layout_width="43dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/carBrand"
+                    android:textColor="@color/car_brand_color"
+                    android:textSize="6dp"
+                    android:layout_marginTop="6dp"
+
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_part3"
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:text="@string/carPart"
+                    android:textSize="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="8dp"
+
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_price3"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/carPrice"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="9dp"
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_marginTop="13dp"
+                android:id="@+id/general2"
+                android:layout_width="match_parent"
+                android:layout_height="138dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/general1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal"
+                >
+
+
+                <LinearLayout
+                    android:background="@drawable/dark_grey_parts_background"
+                    android:id="@+id/holder4"
+                    android:layout_width="108dp"
+                    android:layout_height="138dp"
+                    app:layout_constraintTop_toBottomOf="@id/holder1"
+                    app:layout_constraintStart_toStartOf="@id/general2"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <ImageButton
+                        android:layout_width="108dp"
+                        android:layout_height="81dp"
+                        android:background="@color/image"
+                        android:src="@drawable/mask"
+                        >
+
+                    </ImageButton>
+
+                    <TextView
+                        android:id="@+id/car_brand4"
+                        android:layout_width="43dp"
+                        android:layout_height="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/carBrand"
+                        android:textColor="@color/car_brand_color"
+                        android:textSize="6dp"
+                        android:layout_marginTop="6dp"
+
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_part4"
+                        android:layout_width="64dp"
+                        android:layout_height="15dp"
+                        android:text="@string/carPart"
+                        android:textSize="10dp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="8dp"
+
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_price4"
+                        android:layout_width="40dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/carPrice"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginBottom="9dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:background="@drawable/dark_grey_parts_background"
+                    android:id="@+id/holder5"
+                    android:layout_width="108dp"
+                    android:layout_height="138dp"
+                    app:layout_constraintTop_toBottomOf="@id/holder2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="13dp"
+                    android:orientation="vertical"
+                    >
+
+
+                    <ImageButton
+                        android:layout_width="108dp"
+                        android:layout_height="81dp"
+                        android:background="@color/image"
+                        android:src="@drawable/mask"
+                        >
+
+                    </ImageButton>
+
+                    <TextView
+                        android:id="@+id/car_brand5"
+                        android:layout_width="43dp"
+                        android:layout_height="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/carBrand"
+                        android:textColor="@color/car_brand_color"
+                        android:textSize="6dp"
+                        android:layout_marginTop="6dp"
+
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_part5"
+                        android:layout_width="64dp"
+                        android:layout_height="15dp"
+                        android:text="@string/carPart"
+                        android:textSize="10dp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="8dp"
+
+
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_price5"
+                        android:layout_width="40dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/carPrice"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginBottom="9dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:background="@drawable/dark_grey_parts_background"
+                    android:id="@+id/holder6"
+                    android:layout_width="108dp"
+                    android:layout_height="138dp"
+                    app:layout_constraintTop_toBottomOf="@id/holder2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="13dp"
+                    android:orientation="vertical"
+                    >
+
+
+                    <ImageButton
+
+                        android:layout_width="108dp"
+                        android:layout_height="81dp"
+                        android:background="@color/image"
+                        android:src="@drawable/mask"
+                        >
+
+                    </ImageButton>
+
+                    <TextView
+                        android:id="@+id/car_brand6"
+                        android:layout_width="43dp"
+                        android:layout_height="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/carBrand"
+                        android:textColor="@color/car_brand_color"
+                        android:textSize="6dp"
+                        android:layout_marginTop="6dp"
+
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_part6"
+                        android:layout_width="64dp"
+                        android:layout_height="15dp"
+                        android:text="@string/carPart"
+                        android:textSize="10dp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="8dp"
+
+
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/car_price6"
+                        android:layout_width="40dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/carPrice"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginBottom="9dp"
+
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="homePageThirdCategorySearchViewModel"
+            type="com.sabanciuniv.tomofilyasprint1.viewModel.HomePageThirdCategoriesSearchViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitiesModel.HomePageThirdCategorySearch"
+    android:background="@color/black">
+
+    <Button
+        android:id="@+id/categoriesThirdBackBtn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/arrowicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginLeft="20dp"
+        android:layout_marginTop="49dp">
+
+    </Button>
+
+    <TextView
+        android:layout_width="114dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="139dp"
+        android:layout_marginTop="57dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="12dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:text="@string/karavan">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/categoriesSearchHolder"
+        android:layout_width="350dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/border_rounded"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/searchArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:hint="@string/searchCategory"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="12dp">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/searchBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/categoriesSearchHolder"
+        android:layout_marginTop="104dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="328dp"
+        android:background="@drawable/home_page_rounded"
+        android:src="@drawable/search"
+        android:layout_marginRight="20dp">
+
+    </ImageButton>
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoriesSearchHolder">
+
+        <TextView
+            android:id="@+id/btnAuto"
+            android:layout_width="46dp"
+            android:layout_height="35dp"
+            android:background="@android:color/transparent"
+            android:text="@string/anten"
+            android:layout_marginTop="25dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="31dp"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="23dp"
+            android:layout_height="11dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="44dp"
+            android:textSize="8dp"
+            android:textColor="@color/light_grey"
+            android:text="(977)">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative2"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative1"
+        android:layout_marginTop="24dp"
+        app:layout_constraintRight_toLeftOf="@id/relative3"
+        app:layout_constraintTop_toBottomOf="@id/categoriesSearchHolder">
+
+        <TextView
+            android:id="@+id/btnarTypes"
+            android:layout_width="57dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:text="@string/aspirator"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            />
+
+        <TextView
+            android:id="@+id/tireText"
+            android:layout_width="18dp"
+            android:layout_height="11dp"
+            android:gravity="center"
+            android:layout_marginTop="46dp"
+            android:text="(65)"
+            android:layout_marginLeft="45dp"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative3"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative2"
+        android:layout_marginTop="24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoriesSearchHolder">
+
+        <TextView
+            android:id="@+id/btnMotorbike"
+            android:layout_width="28dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="41dp"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:gravity="center"
+            android:text="@string/mirror" />
+
+        <TextView
+            android:id="@+id/fixText"
+            android:layout_width="24dp"
+            android:layout_height="11dp"
+            android:textSize="8dp"
+            android:textColor="@color/light_grey"
+            android:text="(436)"
+            android:layout_marginTop="44dp"
+            android:layout_marginLeft="42dp"
+            android:gravity="center" />
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/relative4"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative1">
+
+        <TextView
+            android:id="@+id/btnCommercialCars"
+            android:layout_width="82dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="14dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:text="@string/bagageGlove"
+            android:background="@android:color/transparent"
+            />
+
+        <TextView
+            android:id="@+id/toolText"
+            android:layout_width="20dp"
+            android:layout_height="11dp"
+            android:text= "(197)"
+            android:textSize="8dp"
+            android:layout_marginTop="44dp"
+            android:textColor="@color/light_grey"
+            android:layout_marginLeft="45dp"
+            android:gravity="center" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative5"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative4"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative2">
+
+        <TextView
+            android:id="@+id/btnMarket"
+            android:layout_width="66dp"
+            android:layout_height="15dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="24dp"
+            android:text="@string/bisikletAskisi"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tomoText"
+            android:layout_width="20dp"
+            android:layout_height="11dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginLeft="45dp"
+            android:text= "(810)"
+            android:textSize="8dp"
+            android:textColor="@color/light_grey"
+            android:gravity="center" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/relative6"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative5"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative3">
+
+        <TextView
+            android:id="@+id/btnClassicalCars"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"
+            android:text="@string/freezer"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/musicText"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="44dp"
+            android:gravity="center"
+            android:text="(282)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative7"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative4">
+
+        <TextView
+            android:id="@+id/btnKaravan"
+            android:layout_width="57dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/transparent"
+            android:text="@string/cekiDemiri"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/karavanText"
+            android:layout_width="24dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="44dp"
+            android:gravity="center"
+            android:text="(608)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative8"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect_white"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative7"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative5">
+
+        <TextView
+            android:id="@+id/btnCekmeKafasi"
+            android:layout_width="56dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="27dp"
+            android:textAlignment="center"
+            android:text="@string/cekiKafasi"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/cekmeKafasiTxt"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginLeft="45dp"
+            android:gravity="center"
+            android:text="(190)"
+            android:textColor="@color/black"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative9"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative8"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative6">
+
+        <TextView
+            android:id="@+id/btnCekmeEkipmanlari"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"
+            android:text="@string/cekmeEkipmanlari"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/cekipEkipmanlariTxt"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="45dp"
+            android:gravity="center"
+            android:text="(190)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative10"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative7">
+
+        <TextView
+            android:id="@+id/btnDedantor"
+            android:layout_width="57dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/transparent"
+            android:text="@string/dedantor"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/dedantorTxt"
+            android:layout_width="24dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="44dp"
+            android:gravity="center"
+            android:text="(608)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative11"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative7"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative8">
+
+        <TextView
+            android:id="@+id/btnDolap"
+            android:layout_width="56dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="27dp"
+            android:textAlignment="center"
+            android:text="@string/dolap"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/dolapTxt"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginLeft="45dp"
+            android:gravity="center"
+            android:text="(190)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative12"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative8"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative9">
+
+        <TextView
+            android:id="@+id/btnElectricalWc"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"
+            android:text="@string/electricalWc"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/ElectricalWcTxt"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="45dp"
+            android:gravity="center"
+            android:text="(190)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative13"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative10">
+
+        <TextView
+            android:id="@+id/btnEvye"
+            android:layout_width="57dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/transparent"
+            android:text="@string/evye"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/evyeTxt"
+            android:layout_width="24dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="44dp"
+            android:gravity="center"
+            android:text="(608)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative14"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative7"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative11">
+
+        <TextView
+            android:id="@+id/btnGirisBasamagi"
+            android:layout_width="78dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="16dp"
+            android:textAlignment="center"
+            android:text="@string/girisBasamagi"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/girisBasamagiTxt"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginLeft="45dp"
+            android:gravity="center"
+            android:text="(190)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative15"
+        android:layout_width="108dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/category_btn_rect"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toRightOf="@id/relative8"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative12">
+
+        <TextView
+            android:id="@+id/btnHavalandirma"
+            android:layout_width="72dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="18dp"
+            android:textAlignment="center"
+            android:text="@string/havalandirma"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/havalandirmaTxt"
+            android:layout_width="22dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginLeft="45dp"
+            android:gravity="center"
+            android:text="(190)"
+            android:textColor="@color/light_grey"
+            android:textSize="8dp" />
+    </RelativeLayout>
+    <Button
+        android:layout_width="304dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative6"
+        android:background="@drawable/register_button_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/save"
+        android:layout_marginTop="409dp"
+        android:layout_marginBottom="47dp"
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        android:textAlignment="center"
+        >
+
+    </Button>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

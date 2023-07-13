@@ -1,6 +1,8 @@
 package com.sabanciuniv.tomofilyasprint1.network
 
 import com.sabanciuniv.tomofilyasprint1.model.AuthenticationSocial.AuthenticationLoginDataResponse
+import com.sabanciuniv.tomofilyasprint1.model.HomeGetAll.HomeGetAllResponse
+import com.sabanciuniv.tomofilyasprint1.model.HomeSearch.HomeSearchResponse
 import com.sabanciuniv.tomofilyasprint1.model.UserPasswordReset.UserPasswordResetResponse
 import com.sabanciuniv.tomofilyasprint1.model.UserPost.UserPostResponse
 import com.sabanciuniv.tomofilyasprint1.model.UserSendVerificationCode.UserSendVerificationCodeResponse
@@ -34,11 +36,6 @@ interface APIRequest {
     ): Call<AuthenticationLoginDataResponse>
 
 
-    @POST("Authentication/Social")
-    @Headers(Constants.api, Constants.contentType )
-    fun loginWithGoogleApple(
-        @Body request: AuthenticationLoginWithGoogleAppleRequest
-    ): Call<AuthenticationLoginDataResponse>
 
     @GET("/User/SendVerificationCode/{email}")
     @Headers(Constants.api, Constants.contentType)
@@ -53,7 +50,20 @@ interface APIRequest {
     ): Call<UserPasswordResetResponse>
 
 
+    @GET("/Home/GetAll")
+    @Headers(Constants.api, Constants.contentType)
+    fun homePageGetAllData(
+    ): Call<HomeGetAllResponse>
+
+    @POST("/Home/Search")
+    @Headers(Constants.api, Constants.contentType)
+    fun homeSearch(
+        @Body request: HomeSearchRequest
+    ): Call<HomeSearchResponse>
 }
+
+
+//Data Classes are below
 
 data class UserPostRequest(
     val fullName: String,
@@ -76,17 +86,6 @@ data class AuthenticationLoginRequest(
     val password : String
 )
 
-data class AuthenticationLoginWithGoogleAppleRequest(
-
-    val token : String,
-    val platform : String
-)
-
-data class UserSendVerificationCodeRequest(
-
-    val email : String,
-    val apiKey : String
-)
 
 data class UserResetPasswordRequest(
 
@@ -94,3 +93,17 @@ data class UserResetPasswordRequest(
     val code : String,
     val newPassword : String
 )
+
+data class HomeSearchRequest(
+    val searchText : String,
+    val saleStatus: String,
+    val approvalStatus  : String,
+    val pagingParameters : PagingClass
+
+)
+
+data class PagingClass(
+    val pageNumber : Int,
+    val pageSize : Int
+)
+

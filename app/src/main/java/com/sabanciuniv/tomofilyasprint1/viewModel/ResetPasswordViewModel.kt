@@ -19,14 +19,51 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ResetPasswordViewModel (): ViewModel() {
 
     private lateinit var ctx: Context
-    private val retrofitClient = RetrofitClient(ctx)
+    private lateinit var retrofitClient: RetrofitClient
     fun setContext(ctx: Context){
         this.ctx = ctx
+        retrofitClient = RetrofitClient(ctx)
     }
 
 
-    fun resetPassword(email: String, code: String, pass: String) {
-        retrofitClient.resetPassword(email, code, pass)
+    fun resetPassword(email: String, code: String, password: String) {
+        try
+        {
+            val retrofitBuilder = retrofitClient.createAPIRequest()
+            val request = UserResetPasswordRequest(email, code, password)
+            val retrofitData = retrofitBuilder.resetPassword(request)
+            retrofitData.enqueue(object : Callback<UserPasswordResetResponse> {
+                override fun onResponse(
+                    call: Call<UserPasswordResetResponse>,
+                    response: Response<UserPasswordResetResponse>
+                ) {
+                    Log.e("verification response:", "retrieving body")
+                    Log.e("verification r body", response.raw().toString())
+                    val responseBody = response.body()
+                    Log.e("verification success", responseBody?.success.toString())
+                    Log.e("verification message", responseBody?.message.toString())
+
+                    if (responseBody?.success == true) {
+                        val intent = Intent(ctx, LoginActivity::class.java)
+                        ctx.startActivity(intent)
+                    }
+                }
+
+                override fun onFailure(call: Call<UserPasswordResetResponse>, t: Throwable) {
+                    Log.e("verification error: ", t.toString())
+                }
+            })
+
+        }
+
+        catch (e: Exception) {
+            Log.e("Login api error: ", e.toString())
+            // Handle the exception here (e.g. log it or display an error message)
+        }
+
+
+
+
     }
 
 

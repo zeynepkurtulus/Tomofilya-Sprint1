@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="homePageViewModel"
+            type="com.sabanciuniv.tomofilyasprint1.viewModel.HomePageViewModel" />
+    </data>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".ActivitiesModel.HomePage">
+
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="49dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/home_page_rounded"
+            android:src="@drawable/fav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            >
+        </ImageButton>
+
+        <LinearLayout
+            android:id="@+id/searchHolder"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="49dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@id/favoriteBtn"
+            android:background="@drawable/border_rounded">
+            <Button
+                android:id="@+id/searchArea"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textColor="@color/white"
+                android:hint="@string/searchBarText"
+                android:textSize="12dp"
+                android:inputType="none"
+                android:focusable="false"
+                android:textAlignment="textStart"
+                android:layout_marginTop="9dp"
+                android:background="@color/transparent"
+                android:textColorHint="@android:color/white"
+                >
+
+            </Button>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/searchBtn"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/searchHolder"
+            android:layout_marginTop="49dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="330dp"
+            android:background="@drawable/home_page_rounded"
+            android:src="@drawable/search"
+            android:layout_marginRight="20dp"
+            >
+        </ImageButton>
+
+        
+        <LinearLayout
+            android:id="@+id/catHoler"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="128dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/home_page_cat"
+                android:layout_width="67dp"
+                android:layout_height="17dp"
+                android:textColor="@color/light_grey"
+                android:text="@string/categories"
+                android:textSize="12dp"
+                app:layout_constraintVertical_bias="0.008"
+                android:layout_marginLeft="20dp">
+
+            </TextView>
+
+
+            <Button
+                android:id="@+id/btn_see_all"
+                android:layout_width="68dp"
+                android:layout_height="18dp"
+                android:background="@color/black"
+                android:text="@string/seeAll"
+                android:textColor="@color/primary_app_color"
+                android:textAllCaps="false"
+                android:textSize="10dp"
+                android:layout_marginLeft="227dp"
+               >
+
+            </Button>
+        </LinearLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="108dp"
+            android:layout_height="80dp"
+            android:background="@drawable/category_btn_rect"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/catHoler">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                 />
+
+            <TextView
+                android:id="@+id/spareText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="-2dp"
+                android:gravity="center"
+                android:paddingTop="49dp"
+                android:text="@string/spareParts"
+                android:textColor="@android:color/white"
+                android:textSize="8dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="108dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/category_btn_rect"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintLeft_toRightOf="@id/relative1"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toLeftOf="@id/relative3"
+            app:layout_constraintTop_toBottomOf="@id/catHoler">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/tireText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="-2dp"
+                android:gravity="center"
+                android:paddingTop="49dp"
+                android:text="@string/tire"
+                android:textColor="@android:color/white"
+                android:textSize="8dp" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/relative3"
+            android:layout_width="108dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/category_btn_rect"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintLeft_toRightOf="@id/relative2"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/catHoler">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/fixText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="-2dp"
+                android:gravity="center"
+                android:paddingTop="49dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                android:text= "@string/repair"
+                 />
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/relative4"
+            android:layout_width="108dp"
+            android:layout_height="80dp"
+            android:background="@drawable/category_btn_rect"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative1">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/toolText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="-2dp"
+                android:gravity="center"
+                android:paddingTop="49dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                android:text= "@string/tools" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relative5"
+            android:layout_width="108dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/category_btn_rect"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintLeft_toRightOf="@id/relative4"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative2">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/tomoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="-2dp"
+                android:gravity="center"
+                android:paddingTop="49dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                android:text= "@string/tomoClub" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/relative6"
+            android:layout_width="108dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="13dp"
+            android:background="@drawable/category_btn_rect"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintLeft_toRightOf="@id/relative5"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative3">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/musicText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="-2dp"
+                android:gravity="center"
+                android:paddingTop="49dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                android:text="@string/musicSound"
+               />
+        </RelativeLayout>
+        
+        
+        <LinearLayout
+            android:id="@+id/fastestGaragesHolder"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative4"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="32dp">
+
+            <TextView
+                android:id="@+id/fastestGarages"
+                android:layout_width="98dp"
+                android:layout_height="17dp"
+
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/light_grey"
+                android:text="@string/fastest"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/btnSeeAllGarages"
+                android:layout_width="68dp"
+                android:layout_height="18dp"
+                android:text="@string/seeAll"
+                android:background="@color/transparent"
+                android:textColor="@color/primary_app_color"
+                android:textAllCaps="false"
+                android:layout_marginLeft="197dp"
+                android:textSize="10dp">
+
+            </Button>
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/iconsHolder"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fastestGaragesHolder"
+            android:layout_marginTop="16dp">
+
+
+
+
+
+            <ImageButton
+                android:id="@+id/garageBtn1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/entry_fields"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/man"
+                >
+
+            </ImageButton>
+
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/homepage_grey_icon"
+                android:layout_marginLeft="38dp"
+                android:text="A"
+                android:textAlignment="center"
+                android:paddingTop="6dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+
+            </TextView>
+
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/homepage_grey_icon"
+                android:layout_marginLeft="38dp"
+                android:text="A"
+                android:textAlignment="center"
+                android:paddingTop="6dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/homepage_grey_icon"
+                android:layout_marginLeft="38dp"
+                android:text="A"
+                android:textAlignment="center"
+                android:paddingTop="6dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/homepage_grey_icon"
+                android:layout_marginLeft="38dp"
+                android:text="A"
+                android:textAlignment="center"
+                android:paddingTop="6dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/nameholder1"
+            android:layout_width="48dp"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconsHolder"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="32dp"
+            app:layout_constraintRight_toLeftOf="@id/nameholder2"
+            android:text="@string/garageName"
+            android:textSize="6dp"
+            android:textColor="@color/white"
+            >
+
+        </TextView>
+        <TextView
+            android:id="@+id/nameholder2"
+            android:layout_width="48dp"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="@id/nameholder1"
+            app:layout_constraintTop_toBottomOf="@id/iconsHolder"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="78dp"
+            app:layout_constraintLeft_toRightOf="@id/nameholder1"
+            android:text="@string/garageName"
+            android:textSize="6dp"
+            android:textColor="@color/white"
+
+            >
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/nameholder3"
+            android:layout_width="48dp"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="@id/nameholder2"
+            app:layout_constraintTop_toBottomOf="@id/iconsHolder"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@id/nameholder2"
+            android:layout_marginLeft="78dp"
+            android:text="@string/garageName"
+            android:textSize="6dp"
+            android:textColor="@color/white"
+
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/nameholder4"
+            android:layout_width="48dp"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="@id/nameholder3"
+            app:layout_constraintTop_toBottomOf="@id/iconsHolder"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@id/nameholder3"
+            android:layout_marginLeft="78dp"
+            android:text="@string/garageName"
+            android:textSize="6dp"
+            android:textColor="@color/white"
+
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/nameholder5"
+            android:layout_width="48dp"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="@id/nameholder4"
+            app:layout_constraintTop_toBottomOf="@id/iconsHolder"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@id/nameholder4"
+            android:layout_marginLeft="78dp"
+            android:text="@string/garageName"
+            android:textSize="6dp"
+            android:textColor="@color/white"
+
+            >
+        </TextView>
+        
+        
+        <LinearLayout
+            android:id="@+id/onecikanlarHolder"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameholder1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="32dp"
+            >
+
+            <TextView
+                android:id="@+id/onecikanlar"
+                android:layout_width="120dp"
+                android:layout_height="17dp"
+                android:textColor="@color/light_grey"
+                android:textSize="12dp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/öneçıkanlar">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/btnSeeAllProds"
+                android:layout_width="68dp"
+                android:layout_height="18dp"
+                app:layout_constraintTop_toBottomOf="@id/nameholder5"
+                android:background="@color/black"
+                android:textColor="@color/primary_app_color"
+                android:text="@string/seeAll"
+                android:textAllCaps="false"
+                android:textSize="10dp"
+                android:layout_marginLeft="180dp"
+
+                >
+            </Button>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:id="@+id/general1"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onecikanlarHolder"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            >
+
+
+            <LinearLayout
+                android:background="@drawable/dark_grey_parts_background"
+                android:id="@+id/holder1"
+                android:layout_width="108dp"
+                android:layout_height="138dp"
+                app:layout_constraintStart_toStartOf="@id/general1"
+                app:layout_constraintTop_toBottomOf="@id/onecikanlarHolder"
+                app:layout_constraintRight_toLeftOf="@id/holder2"
+               android:layout_marginRight="13dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical"
+               >
+
+
+
+                <ImageButton
+                    android:layout_width="108dp"
+                    android:layout_height="81dp"
+                    android:background="@color/image"
+                    android:src="@drawable/mask"
+                    >
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/car_brand"
+                    android:layout_width="43dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/carBrand"
+                    android:textColor="@color/car_brand_color"
+                    android:textSize="6dp"
+                    android:layout_marginTop="6dp"
+
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_part"
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:text="@string/carPart"
+                    android:textSize="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="8dp"
+
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_price"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/carPrice"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="9dp"
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:background="@drawable/dark_grey_parts_background"
+            android:id="@+id/holder2"
+            android:layout_width="108dp"
+            android:layout_height="138dp"
+            app:layout_constraintRight_toLeftOf="@id/holder3"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="141dp"
+            app:layout_constraintTop_toBottomOf="@id/onecikanlarHolder"
+            android:layout_marginRight="13dp"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+
+            <ImageButton
+                android:layout_width="108dp"
+                android:layout_height="81dp"
+                android:background="@color/image"
+                android:src="@drawable/mask">
+
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/car_brand2"
+                android:layout_width="43dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@string/carBrand"
+                android:textColor="@color/car_brand_color"
+                android:textSize="6dp"
+                android:layout_marginTop="6dp"
+
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/car_part2"
+                android:layout_width="64dp"
+                android:layout_height="15dp"
+                android:text="@string/carPart"
+                android:textSize="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="8dp"
+
+                >
+
+            </TextView>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/crossed_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/discountedPrice"
+                    android:textColor="@color/primary_app_color"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="8dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/car_price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/light_grey"
+                    android:textSize="6dp"
+                    android:text="@string/carPriceStrike"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:background="@drawable/dark_grey_parts_background"
+            android:id="@+id/holder3"
+            android:layout_width="108dp"
+            android:layout_height="138dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onecikanlarHolder"
+             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="262dp"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+
+
+            <ImageButton
+                android:layout_width="108dp"
+                android:layout_height="81dp"
+                android:background="@color/image"
+                android:src="@drawable/mask"
+                >
+
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/car_brand3"
+                android:layout_width="43dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@string/carBrand"
+                android:textColor="@color/car_brand_color"
+                android:textSize="6dp"
+                android:layout_marginTop="6dp"
+
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/car_part3"
+                android:layout_width="64dp"
+                android:layout_height="15dp"
+                android:text="@string/carPart"
+                android:textSize="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="8dp"
+
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/car_price3"
+                android:layout_width="40dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/carPrice"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="9dp"
+               >
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="13dp"
+            android:id="@+id/general2"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/general1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            >
+
+
+            <LinearLayout
+                android:background="@drawable/dark_grey_parts_background"
+                android:id="@+id/holder4"
+                android:layout_width="108dp"
+                android:layout_height="138dp"
+                app:layout_constraintTop_toBottomOf="@id/holder1"
+                app:layout_constraintStart_toStartOf="@id/general2"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical"
+                >
+
+
+
+                <ImageButton
+                    android:layout_width="108dp"
+                    android:layout_height="81dp"
+                    android:background="@color/image"
+                    android:src="@drawable/mask"
+                    >
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/car_brand4"
+                    android:layout_width="43dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/carBrand"
+                    android:textColor="@color/car_brand_color"
+                    android:textSize="6dp"
+                    android:layout_marginTop="6dp"
+
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_part4"
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:text="@string/carPart"
+                    android:textSize="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="8dp"
+
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_price4"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/carPrice"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="9dp"
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="@drawable/dark_grey_parts_background"
+                android:id="@+id/holder5"
+                android:layout_width="108dp"
+                android:layout_height="138dp"
+                app:layout_constraintTop_toBottomOf="@id/holder2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="13dp"
+                android:orientation="vertical"
+                >
+
+
+                <ImageButton
+                    android:layout_width="108dp"
+                    android:layout_height="81dp"
+                    android:background="@color/image"
+                    android:src="@drawable/mask"
+                    >
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/car_brand5"
+                    android:layout_width="43dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/carBrand"
+                    android:textColor="@color/car_brand_color"
+                    android:textSize="6dp"
+                    android:layout_marginTop="6dp"
+
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_part5"
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:text="@string/carPart"
+                    android:textSize="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="8dp"
+
+
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_price5"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/carPrice"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="9dp"
+                   >
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="@drawable/dark_grey_parts_background"
+                android:id="@+id/holder6"
+                android:layout_width="108dp"
+                android:layout_height="138dp"
+                app:layout_constraintTop_toBottomOf="@id/holder2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="13dp"
+                android:orientation="vertical"
+                >
+
+
+                <ImageButton
+
+                    android:layout_width="108dp"
+                    android:layout_height="81dp"
+                    android:background="@color/image"
+                    android:src="@drawable/mask"
+                    >
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/car_brand6"
+                    android:layout_width="43dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/carBrand"
+                    android:textColor="@color/car_brand_color"
+                    android:textSize="6dp"
+                    android:layout_marginTop="6dp"
+
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_part6"
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:text="@string/carPart"
+                    android:textSize="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="8dp"
+
+
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/car_price6"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/carPrice"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="9dp"
+
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logoHolder"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/general2"
+
+            >
+            <ImageView
+                android:layout_width="139dp"
+                android:layout_height="32dp"
+                android:src="@drawable/margologo"
+                android:layout_gravity="center"
+                android:layout_marginLeft="126dp">
+
+            </ImageView>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/rect1"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
+            android:layout_marginLeft="27dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoHolder"
+            android:layout_marginTop="32dp"
+            android:background="@color/image" />
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="110dp"
+            android:layout_marginLeft="203dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoHolder"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/image" />
+
+        <TextView
+            android:id="@+id/announcement"
+            android:layout_width="59dp"
+            android:layout_height="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rect1"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/light_grey"
+            android:text="@string/announcements"
+            android:textSize="12dp">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/seeAllAnnouncements"
+            android:layout_width="68dp"
+            android:layout_height="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="308dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rect1"
+            android:layout_marginTop="34dp"
+            android:text="@string/seeAll"
+            android:background="@color/black"
+            android:textSize="10dp"
+            android:textColor="@color/primary_app_color"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <LinearLayout
+            android:id="@+id/announcementHolder"
+            android:background="@drawable/homepage_dark_grey_rect"
+            android:orientation="vertical"
+            android:layout_width="350dp"
+            android:layout_height="142dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seeAllAnnouncements"
+            android:layout_marginTop="16dp"
+            >
+
+            <TextView
+                android:id="@+id/lastAnnouncementDetails"
+                android:background="@drawable/homepage_dark_grey_rect"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:textSize="8dp"
+                android:textAlignment="center"
+                android:paddingTop="20dp"
+                android:layout_height="104dp">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/btnAnnounceHeader"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:background="@drawable/home_page_white_rect"
+                android:gravity="left"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/eventstv"
+            android:layout_width="43dp"
+            android:layout_height="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/announcementHolder"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/events"
+            android:textColor="@color/light_grey"
+            android:textSize="12dp"
+            >
+
+        </TextView>
+
+
+        <LinearLayout
+            android:id="@+id/general3"
+            android:layout_width="350dp"
+            android:layout_height="112dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eventstv"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/home_page_events"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+
+                android:layout_width="232dp"
+                android:layout_height="112dp">
+
+                <Button
+                    android:id="@+id/eventNameTxt"
+                    android:layout_width="70dp"
+                    android:background="@color/black"
+                    android:layout_height="17dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="18dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary_app_color"
+                    android:textSize="12dp">
+
+
+                </Button>
+                <LinearLayout
+                    android:layout_width="83dp"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="5dp">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/location">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/eventLoc"
+                        android:layout_width="62dp"
+                        android:layout_height="15dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="8dp"
+                        android:text="@string/eventLoc">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/eventDesc"
+                    android:layout_width="204dp"
+                    android:layout_height="37dp"
+                    android:textSize="8dp"
+                    android:text="@string/eventText"
+                    android:textColor="@color/light_grey"
+                    android:layout_marginLeft="28dp"
+                    >
+
+                </TextView>
+
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="110dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/dateIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="28dp"
+                    android:src="@drawable/calendar" />
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dateIcon"
+                    android:layout_alignStart="@id/dateIcon"
+                    android:layout_alignEnd="@id/dateIcon"
+                    android:layout_alignBottom="@id/dateIcon"
+                    android:gravity="center"
+                    android:textSize="12dp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/eventDate"
+                    android:layout_width="61dp"
+                    android:layout_height="29dp"
+                    android:layout_below="@id/dateIcon"
+                    android:textSize="8dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="9dp"
+                    android:text=""
+                    android:textColor="@color/white" /> <!-- Replace with desired text color -->
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/general3"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="12dp"
+            android:text="@string/lastUploadedVidedo"
+            android:textColor="@color/light_grey"
+            >
+
+        </TextView>
+
+        <Button
+            android:id="@+id/seeAllVideos"
+            android:layout_width="68dp"
+            android:layout_height="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/general3"
+            android:layout_marginTop="34dp"
+            android:layout_marginLeft="308dp"
+            android:background="@color/black"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_app_color"
+            android:text="@string/seeAll"
+            android:textSize="10dp"
+            >
+
+        </Button>
+
+        <LinearLayout
+            android:id="@+id/videoHolder"
+            android:background="@drawable/homepage_dark_grey_rect"
+            android:orientation="vertical"
+            android:layout_width="350dp"
+            android:layout_marginLeft="20dp"
+
+            android:layout_height="142dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seeAllVideos"
+            android:layout_marginTop="16dp"
+            >
+
+            <TextView
+                android:background="@drawable/homepage_dark_grey_rect"
+                android:layout_width="match_parent"
+                android:layout_height="104dp">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/btnVideoHeader"
+                android:background="@drawable/home_page_white_rect"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="@string/videoName"
+                android:gravity="left"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAllCaps="false"
+                >
+
+            </Button>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dict"
+            android:layout_width="39dp"
+            android:layout_height="17dp"
+            android:textColor="@color/light_grey"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/videoHolder"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="29dp"
+            app:layout_constraintRight_toLeftOf="@id/seeAllEvents"
+            android:text="@string/dictionary">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/seeAllEvents"
+            android:layout_width="68dp"
+            android:layout_height="18dp"
+            app:layout_constraintLeft_toRightOf="@id/dict"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/videoHolder"
+            android:layout_marginTop="31dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="308dp"
+            android:background="@color/black"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_app_color"
+            android:textSize="10dp"
+            android:text="@string/seeAll"
+            >
+
+        </Button>
+
+
+        <LinearLayout
+            android:id="@+id/general4"
+            android:layout_width="350dp"
+            android:layout_height="112dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dict"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/home_page_events">
+
+            <LinearLayout
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/dictionaryTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="8dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="25dp">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/dictionaryIv"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp">
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="220dp"
+                android:layout_height="110dp">
+                <TextView
+                    android:id="@+id/dictionaryDescTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                     android:textSize="9dp"
+                    android:textAlignment="center"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/light_grey">
+
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navBar"
+            android:layout_width="392dp"
+            android:layout_height="95dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/general4"
+            android:layout_marginTop="49dp"
+            android:orientation="horizontal"
+            android:background="@drawable/home_page_nav_bar"
+            >
+
+            <LinearLayout
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="26dp"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+            <Button
+                android:id="@+id/homeBtn"
+                android:layout_width="24dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="24dp"
+               android:background="@drawable/homeicon">
+
+            </Button>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="8dp"
+                    android:text="@string/homePage">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="26dp"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/messageBtn"
+                    android:layout_width="24dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/messageicon">
+
+                </Button>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="8dp"
+                    android:text="@string/messages">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="45dp"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/myGarageBtn"
+                    android:layout_width="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/logoicon">
+
+                </Button>
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="8dp"
+                    android:text="@string/myGarage">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="26dp"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/shopCardBtn"
+                    android:layout_width="24dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/shoppingicon">
+
+                </Button>
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="8dp"
+                    android:text="@string/shopCard">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/profileBtn"
+                    android:layout_width="24dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/profileicon">
+
+                </Button>
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="8dp"
+                    android:text="@string/profile">
+
+                </TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+    </layout>

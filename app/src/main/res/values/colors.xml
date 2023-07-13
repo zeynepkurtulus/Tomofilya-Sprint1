@@ -13,4 +13,7 @@
     <color name="transparent">#80000000</color>
     <color name="image">#1D1D1D</color>
     <color name="snackbar_error_color">#F72400</color>
+    <color name="dark_grey">#232326</color>
+    <color name="car_brand_color">#AAAAAA</color>
+    <color name="item_request_color">#767676</color>
 </resources>

@@ -12,6 +12,7 @@ import android.text.style.ForegroundColorSpan
 
 
 import android.widget.TextView
+import android.widget.Toast
 import com.sabanciuniv.tomofilyasprint1.viewModel.WelcomePageViewModel
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -37,20 +38,19 @@ class WelcomePage : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(WelcomePageViewModel::class.java)
         viewModel.setContext(this)
         binding.welcomePageViewModel = viewModel
-        val typeFace : Typeface =Typeface.createFromAsset(assets,"Poppins-Regular.ttf")
-        binding.userContract.typeface = typeFace
-        binding.accept.typeface = typeFace
-        binding.switchLogin.typeface = typeFace
-        binding.switchRegister.typeface = typeFace
-        binding.passfield.typeface = typeFace
-        binding.emailTxt.typeface = typeFace
-        binding.nameSurnameTxt.typeface = typeFace
-        binding.register.typeface = typeFace
-        binding.textOr.typeface = typeFace
+
         setColor(binding.userContract)
-        binding.contWGoogle.typeface = typeFace
 
 
+
+        binding.register.setOnClickListener {
+            val name = binding.nameSurnameTxt.text.toString()
+            val email = binding.emailTxt.text.toString()
+            val pass = binding.passwordTxt.text.toString()
+            if ( binding.nameSurnameTxt.text.isEmpty() || binding.emailTxt.text.isEmpty() || binding.passwordTxt.text!!.isEmpty()) Toast.makeText(this, "Lütfen Tüm Alanları Doldurun", Toast.LENGTH_LONG).show()
+            else viewModel.registerUser(name, email, pass, true)
+
+        }
 
 
         binding.switchRegister.setOnClickListener {

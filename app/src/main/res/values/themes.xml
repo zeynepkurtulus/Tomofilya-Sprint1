@@ -15,5 +15,9 @@
         <item name="android:windowFullscreen">true</item>,
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowBackground">@null</item>
+        <item name="android:fontFamily">@font/poppins_regular_font</item>
+
     </style>
+
+
 </resources>

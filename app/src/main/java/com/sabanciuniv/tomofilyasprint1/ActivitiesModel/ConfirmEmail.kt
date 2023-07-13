@@ -17,13 +17,14 @@ class ConfirmEmail : AppCompatActivity() {
         viewModel.setContext(this)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_confirm_email)
+
         binding.btnSendCode.setOnClickListener {
             val d1 : String = binding.digit1.text.toString()
             val d2 : String = binding.digit2.text.toString()
             val d3 : String = binding.digit3.text.toString()
             val d4 : String = binding.digit4.text.toString()
-            val email: String = intent.getStringExtra(R.string.emailStr.toString()).toString()
-            viewModel.emailConfirm(d1,d2,d3,d4,email)
+            val email =  intent.getStringExtra("email")
+            viewModel.emailConfirm(d1,d2,d3,d4,email.toString())
             //emailConfirm()
         }
         binding.originalResendPass.setOnClickListener {
@@ -31,6 +32,8 @@ class ConfirmEmail : AppCompatActivity() {
             viewModel.forgotPassSendVerifyCode(email)
             //forgotPassSendVerifyCode(email)
         }
+
+
 
 
     }
