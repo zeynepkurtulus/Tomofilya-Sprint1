@@ -138,13 +138,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/catHoler">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button1"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent"
                  />
 
@@ -157,7 +157,6 @@
                 android:layout_marginBottom="-2dp"
                 android:gravity="center"
                 android:paddingTop="49dp"
-                android:text="@string/spareParts"
                 android:textColor="@android:color/white"
                 android:textSize="8dp" />
         </RelativeLayout>
@@ -175,13 +174,13 @@
             app:layout_constraintRight_toLeftOf="@id/relative3"
             app:layout_constraintTop_toBottomOf="@id/catHoler">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent"/>
 
             <TextView
@@ -212,13 +211,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/catHoler">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent" />
 
             <TextView
@@ -250,13 +249,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/relative1">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button4"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent" />
 
             <TextView
@@ -286,13 +285,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/relative2">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button5"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent" />
 
             <TextView
@@ -323,13 +322,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/relative3">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button6"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent" />
 
             <TextView
@@ -413,11 +412,12 @@
             </ImageButton>
 
 
-            <TextView
+            <ImageButton
+                android:id="@+id/garageBtn2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/homepage_grey_icon"
-                android:layout_marginLeft="38dp"
+                android:layout_marginLeft="32dp"
                 android:text="A"
                 android:textAlignment="center"
                 android:paddingTop="6dp"
@@ -426,14 +426,15 @@
                 android:textSize="18dp"
                 >
 
-            </TextView>
+            </ImageButton>
 
 
-            <TextView
+            <ImageButton
+                android:id="@+id/garageBtn3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/homepage_grey_icon"
-                android:layout_marginLeft="38dp"
+                android:layout_marginLeft="31dp"
                 android:text="A"
                 android:textAlignment="center"
                 android:paddingTop="6dp"
@@ -442,13 +443,14 @@
                 android:textSize="18dp"
                 >
 
-            </TextView>
+            </ImageButton>
 
-            <TextView
+            <ImageButton
+                android:id="@+id/garageBtn4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/homepage_grey_icon"
-                android:layout_marginLeft="38dp"
+                android:layout_marginLeft="31dp"
                 android:text="A"
                 android:textAlignment="center"
                 android:paddingTop="6dp"
@@ -457,13 +459,14 @@
                 android:textSize="18dp"
                 >
 
-            </TextView>
+            </ImageButton>
 
-            <TextView
+            <ImageButton
+                android:id="@+id/garageBtn5"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/homepage_grey_icon"
-                android:layout_marginLeft="38dp"
+                android:layout_marginLeft="30dp"
                 android:text="A"
                 android:textAlignment="center"
                 android:paddingTop="6dp"
@@ -472,7 +475,7 @@
                 android:textSize="18dp"
                 >
 
-            </TextView>
+            </ImageButton>
 
         </LinearLayout>
 
@@ -483,10 +486,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iconsHolder"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="28dp"
             app:layout_constraintRight_toLeftOf="@id/nameholder2"
-            android:text="@string/garageName"
             android:textSize="6dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
             >
 
@@ -498,10 +501,11 @@
             app:layout_constraintStart_toStartOf="@id/nameholder1"
             app:layout_constraintTop_toBottomOf="@id/iconsHolder"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="78dp"
+            android:layout_marginLeft="70dp"
             app:layout_constraintLeft_toRightOf="@id/nameholder1"
             android:text="@string/garageName"
             android:textSize="6dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
 
             >
@@ -517,9 +521,10 @@
             app:layout_constraintTop_toBottomOf="@id/iconsHolder"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toRightOf="@id/nameholder2"
-            android:layout_marginLeft="78dp"
+            android:layout_marginLeft="70dp"
             android:text="@string/garageName"
             android:textSize="6dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
 
             >
@@ -534,9 +539,10 @@
             app:layout_constraintTop_toBottomOf="@id/iconsHolder"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toRightOf="@id/nameholder3"
-            android:layout_marginLeft="78dp"
+            android:layout_marginLeft="70dp"
             android:text="@string/garageName"
             android:textSize="6dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
 
             >
@@ -551,9 +557,10 @@
             app:layout_constraintTop_toBottomOf="@id/iconsHolder"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toRightOf="@id/nameholder4"
-            android:layout_marginLeft="78dp"
+            android:layout_marginLeft="70dp"
             android:text="@string/garageName"
             android:textSize="6dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
 
             >
@@ -633,21 +640,20 @@
 
 
 
-                <ImageButton
+                <ImageView
+                    android:id="@+id/prod1"
                     android:layout_width="108dp"
                     android:layout_height="81dp"
                     android:background="@color/image"
-                    android:src="@drawable/mask"
                     >
 
-                </ImageButton>
+                </ImageView>
 
                 <TextView
                     android:id="@+id/car_brand"
                     android:layout_width="43dp"
                     android:layout_height="8dp"
                     android:layout_marginLeft="8dp"
-                    android:text="@string/carBrand"
                     android:textColor="@color/car_brand_color"
                     android:textSize="6dp"
                     android:layout_marginTop="6dp"
@@ -701,13 +707,14 @@
             android:layout_marginTop="16dp">
 
 
-            <ImageButton
+            <ImageView
+                android:id="@+id/prod2"
                 android:layout_width="108dp"
                 android:layout_height="81dp"
                 android:background="@color/image"
-                android:src="@drawable/mask">
+                >
 
-            </ImageButton>
+            </ImageView>
 
             <TextView
                 android:id="@+id/car_brand2"
@@ -748,21 +755,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/discountedPrice"
-                    android:textColor="@color/primary_app_color"
+                    android:textColor="@color/white"
                     android:textSize="10dp"
                     android:layout_marginLeft="8dp"
 
                     />
 
-                <TextView
-                    android:id="@+id/car_price2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/light_grey"
-                    android:textSize="6dp"
-                    android:text="@string/carPriceStrike"
-
-                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -776,20 +774,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/onecikanlarHolder"
              app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="262dp"
+            android:layout_marginLeft="240dp"
             android:orientation="vertical"
             android:layout_marginTop="16dp">
 
 
 
-            <ImageButton
+            <ImageView
+                android:id="@+id/prod3"
                 android:layout_width="108dp"
                 android:layout_height="81dp"
                 android:background="@color/image"
-                android:src="@drawable/mask"
+
                 >
 
-            </ImageButton>
+            </ImageView>
 
             <TextView
                 android:id="@+id/car_brand3"
@@ -858,14 +857,15 @@
 
 
 
-                <ImageButton
+                <ImageView
+                    android:id="@+id/prod4"
                     android:layout_width="108dp"
                     android:layout_height="81dp"
                     android:background="@color/image"
-                    android:src="@drawable/mask"
+
                     >
 
-                </ImageButton>
+                </ImageView>
 
                 <TextView
                     android:id="@+id/car_brand4"
@@ -922,14 +922,14 @@
                 >
 
 
-                <ImageButton
+                <ImageView
+                    android:id="@+id/prod5"
                     android:layout_width="108dp"
                     android:layout_height="81dp"
                     android:background="@color/image"
-                    android:src="@drawable/mask"
                     >
 
-                </ImageButton>
+                </ImageView>
 
                 <TextView
                     android:id="@+id/car_brand5"
@@ -987,15 +987,14 @@
                 >
 
 
-                <ImageButton
-
+                <ImageView
+                    android:id="@+id/prod6"
                     android:layout_width="108dp"
                     android:layout_height="81dp"
                     android:background="@color/image"
-                    android:src="@drawable/mask"
                     >
 
-                </ImageButton>
+                </ImageView>
 
                 <TextView
                     android:id="@+id/car_brand6"
@@ -1073,6 +1072,7 @@
             android:background="@color/image" />
 
         <ImageView
+            android:id="@+id/rect2"
             android:layout_width="160dp"
             android:layout_height="110dp"
             android:layout_marginLeft="203dp"
