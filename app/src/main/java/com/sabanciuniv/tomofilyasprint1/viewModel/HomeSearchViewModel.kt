@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.EditText
 import androidx.lifecycle.ViewModel
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.HomePageItemNotFound
+import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.HomePageItemRequest
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.HomePageSearchResults
 import com.sabanciuniv.tomofilyasprint1.R
 import com.sabanciuniv.tomofilyasprint1.model.HomeSearch.HomeSearchResponse
@@ -67,7 +68,7 @@ class HomeSearchViewModel : ViewModel() {
                         if (holderlist.isEmpty()){
                             val word = (ctx as Activity)?.findViewById<EditText>(R.id.searchArea!!)
                             val searchText = word?.text.toString()
-                            val intent = Intent(ctx, HomePageItemNotFound::class.java)
+                            val intent = Intent(ctx, HomePageItemRequest::class.java)
                             intent.putExtra("searchText", searchText)
                             ctx.startActivity(intent)
                         }

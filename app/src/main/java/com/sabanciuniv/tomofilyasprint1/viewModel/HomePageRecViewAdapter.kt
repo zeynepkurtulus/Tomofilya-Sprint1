@@ -29,12 +29,12 @@ class HomePageRecViewAdapter(private val context : Context, private val data: Li
     }
 
 
-
     inner class ViewHolder(itemView :View) : RecyclerView.ViewHolder(itemView){
         val TextView : TextView = itemView.findViewById(R.id.result)
         val TextView2 : TextView = itemView.findViewById(R.id.category)
 
     }
+
 }
 
 

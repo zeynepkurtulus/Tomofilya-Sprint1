@@ -1,13 +1,16 @@
 package com.sabanciuniv.tomofilyasprint1.viewModel
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import android.widget.EditText
 import androidx.lifecycle.ViewModel
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.ConfirmEmailWhenForgotPassword
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.HomePage
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.SplashActivity
 import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.WelcomePage
+import com.sabanciuniv.tomofilyasprint1.R
 import com.sabanciuniv.tomofilyasprint1.network.APIRequest
 import com.sabanciuniv.tomofilyasprint1.network.AuthenticationLoginRequest
 import com.sabanciuniv.tomofilyasprint1.network.Constants
@@ -29,6 +32,10 @@ class LoginActivityViewModel (): ViewModel(){
         retrofitClient = RetrofitClient(ctx)
     }
 
+    fun getEmail() : String{
+        val email = (ctx as Activity)?.findViewById<EditText>(R.id.login_email!!)
+        return email.toString()
+    }
 
     fun loginUser(email: String, password: String) {
         try {

@@ -140,5 +140,31 @@
     <string name="itemRequestDesc">Ürün Açıklaması</string>
     <string name="itemRequestDescEx">Ürünü daha iyi anlamamız için bir kaç      cümle ile bizimle paylaşmalısın…</string>
     <string name="generateRequest">Talep Oluştur</string>
+    <string name="categoryNotFound">Aradığın kategoriyi bulamadın mı ?</string>
+    <string name="generateBrandRequest">Marka Talebi Oluştur</string>
+    <string name="brandRequest">Marka Talebi</string>
+    <string name="brandReqText">Ne yazık ki aramızla eşleşen marka bulamadık. Talep oluşturun ve ekibimiz sizin için talebinizi incelesin.</string>
+    <string name="generateBrandReqBtn">Talep Oluştur</string>
+    <string name="brandCode">Ürün Kodu</string>
+    <string name="productSituation">Ürünün Durumu</string>
+    <string name="notUsed">Kullanılmamış</string>
+    <string name="brandNew">(paketli, sıfır ürün)</string>
+    <string name="used">2. El</string>
+    <string name="workingFine">(çalışır, iyi durumda)</string>
+    <string name="productProposal">Ürünün Teklif Durumu</string>
+    <string name="openForOffer">Tekliflere Açık</string>
+    <string name="closedForOffer">Tekliflere Kapalı</string>
+    <string name="extraInfo">Ek Bilgiler</string>
+    <string name="shipmentSize">Kargo Boyutu</string>
+    <string name="continueRequest">Devam</string>
+    <string name="generateCategoryRequest">Kategori Talebi Oluştur</string>
+    <string name="brandRequestTxt">Marka Talebi</string>
+    <string name="categoryRequestTxt">Kategori Talebi</string>
+    <string name="productPrice">Ürün Fiyatı</string>
+    <string name="shipmentPrice">Kargo Fiyatı</string>
+    <string name="hizmetBedeli">Hizmet Bedeli</string>
+    <string name="addPhotos">Fotoğraf Ekle</string>
+    <string name="galery">galeri</string>
+
 
 </resources>

@@ -29,7 +29,7 @@ class HomePageItemNotFound : AppCompatActivity() {
             finish()
         }
         binding.backBtn.setOnClickListener {
-            val intent = Intent(this, HomePageSearch::class.java)
+            val intent = Intent(this, HomePageSecondCategoryForRequest::class.java)
             startActivity(intent)
             finish()
         }

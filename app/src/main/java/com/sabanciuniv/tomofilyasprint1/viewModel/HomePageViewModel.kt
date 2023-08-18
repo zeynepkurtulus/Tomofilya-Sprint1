@@ -30,10 +30,7 @@ class HomePageViewModel() : ViewModel() {
     private lateinit var ctx: Context
     private lateinit var retrofitClient: RetrofitClient
     private var responseBodyGen :HomeGetAllResponse? = null
-    val lastAnnouncementDetails = MutableLiveData<String>()
     val announceBtnName = MutableLiveData<String>()
-    val btnUrl = MutableLiveData<String>()
-    val iconUrls: MutableList<String> = mutableListOf()
     private val buttonIds : MutableMap<String, Int> = mutableMapOf()
 
     fun setContext(ctx: Context){

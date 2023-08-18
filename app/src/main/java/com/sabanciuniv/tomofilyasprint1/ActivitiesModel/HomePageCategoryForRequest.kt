@@ -21,6 +21,7 @@ class HomePageCategoryForRequest : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home_page_category_for_request)
         binding.homePageCategoryForRequestViewModel = viewModel
+        viewModel.getMainCategories(false, 3)
 
 
         binding.categoriesBackBtn.setOnClickListener {

@@ -19,6 +19,7 @@ import com.sabanciuniv.tomofilyasprint1.model.AuthenticationSocial.Authenticatio
 import com.sabanciuniv.tomofilyasprint1.network.APIRequest
 import com.sabanciuniv.tomofilyasprint1.network.AuthenticationLoginRequest
 import com.sabanciuniv.tomofilyasprint1.network.Constants
+import com.sabanciuniv.tomofilyasprint1.network.SharedDataRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,com.sabanciuniv.tomofilyasprint1.R.layout.activity_login)
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)
         viewModel.setContext(this)
-        val switch = findViewById<Button>(R.id.switch_login)
+        val sharedDataRepository = SharedDataRepository.getInstance()
         binding.switchLogin.setOnClickListener{
             startActivity(Intent(this@LoginActivity, WelcomePage::class.java))
             finish()
@@ -44,7 +45,9 @@ class LoginActivity : AppCompatActivity() {
         val loginbtn = findViewById<Button>(R.id.log_in_button)
         binding.logInButton.setOnClickListener {
             val login_email: String = binding.loginEmail.text.toString()
+            sharedDataRepository.email = login_email
             val login_pass: String = binding.loginPass.text.toString()
+            sharedDataRepository.password = login_pass
             Log.e("Email", login_email)
             Log.e("Password", login_pass)
             viewModel.loginUser(login_email, login_pass)
@@ -63,7 +66,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun loginUser(email: String, password: String) {
+    private fun loginUser(email: String, password: String) : String{
+        var token = ""
         try {
             val retrofitBuilder = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -77,12 +81,10 @@ class LoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
 
                     val responseBody = response.body()
-                    Log.d("response body" , responseBody.toString())
 
+                    Log.d("response body" , responseBody.toString())
                     if(responseBody?.success  == true){
-                        //TODO get the daha at place it
-                        val intent = Intent(this@LoginActivity, HomePage::class.java)
-                        startActivity(intent)
+                        token = responseBody?.data?.accessToken.toString()
                     }
                     else{
                         Log.e("Login error)" , responseBody?.success.toString())
@@ -100,6 +102,7 @@ class LoginActivity : AppCompatActivity() {
             Log.e("Login api error: ", e.toString())
             // Handle the exception here (e.g. log it or display an error message)
         }
+        return token
     }
 
 

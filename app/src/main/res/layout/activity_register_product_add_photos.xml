@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="registerProductAddPhotosViewModel"
+            type="com.sabanciuniv.tomofilyasprint1.viewModel.RegisterProductAddPhotosViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+   android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitiesModel.RegisterProductAddPhotos">
+
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/arrowicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/addPhotosTv"
+        android:layout_width="78dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginTop="57dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:text="@string/addPhotos">
+
+    </TextView>
+
+    <FrameLayout
+        android:id="@+id/fl_kamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/photo_upload_rect"
+        app:layout_constraintTop_toBottomOf="@id/addPhotosTv"
+        android:layout_marginTop="30dp"
+
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="Kamera"
+            android:gravity="center"
+            />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/galeryHolder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_kamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        >
+        <FrameLayout
+            android:id="@+id/fl_galeri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/photo_upload_rect"
+            >
+
+            <ImageView
+                android:id="@+id/uploadPhotosGallery"
+                android:layout_width="76dp"
+                android:layout_height="55dp"/>
+
+            <TextView
+                android:layout_width="76dp"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:textColor="@color/photo_color"
+                android:textSize="8dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:text="@string/galery"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <ImageButton
+                android:id="@+id/btnTakePhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/camera"
+                android:background="@color/transparent"
+                android:layout_marginRight="38dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selectedPhotosHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/galeryHolder">
+
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="@color/image"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            android:id="@+id/addPhoto1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@color/image"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+           />
+
+        <Button
+            android:id="@+id/btn_cancel1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/delete"
+            android:visibility="gone"
+
+           />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="@color/image"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            android:id="@+id/photo2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@color/image"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+           />
+
+        <Button
+            android:id="@+id/btn_cancel2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/delete"
+            android:visibility="gone"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+           />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="@color/image"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            android:id="@+id/photo3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@color/image"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            />
+
+        <Button
+            android:id="@+id/btn_cancel3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/delete"
+            android:visibility="gone"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="@color/image"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            android:id="@+id/photo4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@color/image"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+
+        <Button
+            android:id="@+id/btn_cancel4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/delete"
+            android:visibility="gone"
+           />
+    </FrameLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/saveButton_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kaydet"
+        android:background="@drawable/register_button_rounded"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/selectedPhotosHolder"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

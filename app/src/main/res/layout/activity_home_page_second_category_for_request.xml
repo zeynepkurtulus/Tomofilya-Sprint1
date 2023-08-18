@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:background="@color/black">
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivitiesModel.HomePageSecondCategoryForRequest">
@@ -111,7 +110,6 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:background="@android:color/transparent"
-            android:text="@string/automobi"
             android:layout_marginTop="25dp"
             android:textAlignment="center"
             android:layout_marginLeft="31dp"
@@ -146,13 +144,12 @@
         app:layout_constraintTop_toBottomOf="@id/categoriesSearchHolder">
 
         <TextView
-            android:id="@+id/btnarTypes"
+            android:id="@+id/btnCarTypes"
             android:layout_width="57dp"
             android:layout_marginTop="19dp"
             android:layout_marginLeft="27dp"
             android:textColor="@color/white"
             android:textSize="10dp"
-            android:text="@string/autoTypes"
             android:layout_height="27dp"
             android:gravity="center"
             android:background="@android:color/transparent"
@@ -192,7 +189,7 @@
             android:textColor="@color/white"
             android:textSize="10dp"
             android:gravity="center"
-            android:text="@string/motorbike" />
+          />
 
         <TextView
             android:id="@+id/fixText"
@@ -229,7 +226,6 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="10dp"
-            android:text="@string/commercial"
             android:background="@android:color/transparent"
             />
 
@@ -267,7 +263,6 @@
             android:textSize="10dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="24dp"
-            android:text="@string/rcModels"
             android:textAlignment="center"/>
 
         <TextView
@@ -303,7 +298,6 @@
             android:layout_marginTop="25dp"
             android:layout_marginLeft="21dp"
             android:textAlignment="center"
-            android:text="@string/classicalCar"
             android:background="@android:color/transparent"
             android:textColor="@color/white"
             android:textSize="10dp"
@@ -339,7 +333,6 @@
             android:layout_marginLeft="27dp"
             android:layout_marginTop="19dp"
             android:background="@android:color/transparent"
-            android:text="@string/karavan"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="10dp" />
@@ -369,13 +362,12 @@
         app:layout_constraintTop_toBottomOf="@id/relative5">
 
         <TextView
-            android:id="@+id/btnCSpecialCars"
+            android:id="@+id/btnSpecialCars"
             android:layout_width="80dp"
             android:layout_height="27dp"
             android:layout_marginTop="19dp"
             android:layout_marginLeft="15dp"
             android:textAlignment="center"
-            android:text="@string/electricalCars"
             android:background="@android:color/transparent"
             android:textColor="@color/white"
             android:textSize="10dp"
@@ -392,6 +384,38 @@
             android:textColor="@color/light_grey"
             android:textSize="8dp" />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="148dp"
+        android:layout_height="11dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative8"
+        android:textColor="@color/light_grey"
+        android:textSize="8dp"
+        android:text="@string/categoryNotFound">
+
+    </TextView>
+    
+    <Button
+        android:id="@+id/categoryRequestBtn"
+        android:layout_width="98dp"
+        android:layout_height="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative8"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="40dp"
+        android:textAllCaps="false"
+        android:textColor="@color/primary_app_color"
+        android:textSize="8dp"
+        android:text="@string/generateCategoryRequest"
+        android:background="@color/transparent">
+
+    </Button>
 
     <Button
         android:id="@+id/btnSave"
@@ -410,6 +434,8 @@
         >
 
     </Button>
+    
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

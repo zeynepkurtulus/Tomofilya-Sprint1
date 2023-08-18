@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -14,6 +18,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TomofilyaSprint1"
         tools:targetApi="31">
+        <activity
+            android:name=".ActivitiesModel.RegisterProductAddPhotos"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivitiesModel.PriceSelection"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivitiesModel.ShippingSelection"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivitiesModel.NewCategoryRequest"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ActivitiesModel.HomePageSecondCategoryForRequest"
             android:exported="false">
@@ -58,13 +90,6 @@
         </activity>
         <activity
             android:name=".ActivitiesModel.HomePageSecondCategorySearch"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ActivitiesModel.HomePageSpareParts"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

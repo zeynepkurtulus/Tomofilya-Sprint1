@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/viewHolderL"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="108dp"
+    android:layout_height="80dp"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:background="@drawable/category_btn_rect">
+
+        <TextView
+            android:id="@+id/brandHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/amountHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8dp"
+            android:textColor="@color/light_grey"
+           >
+
+        </TextView>
+
+
+
+
+
+
+</LinearLayout>
