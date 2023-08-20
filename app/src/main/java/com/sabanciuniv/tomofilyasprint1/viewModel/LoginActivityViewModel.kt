@@ -32,33 +32,18 @@ class LoginActivityViewModel (): ViewModel(){
         retrofitClient = RetrofitClient(ctx)
     }
 
-    fun getEmail() : String{
-        val email = (ctx as Activity)?.findViewById<EditText>(R.id.login_email!!)
-        return email.toString()
-    }
-
     fun loginUser(email: String, password: String) {
         try {
-
-            /*
-            val retrofitBuilder = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.baseURL)
-                .build()
-                .create(APIRequest::class.java)
-
-             */
             val retrofitBuilder = retrofitClient.createAPIRequest()
             val request = AuthenticationLoginRequest(email, password)
             val retrofitData = retrofitBuilder.login(request)
             Log.e("Home process", "going...")
             retrofitData.enqueue(object: Callback<AuthenticationLoginDataResponse> {
                 override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
-
                     val responseBody = response.body()
                     Log.d("response body" , responseBody.toString())
-
                     if(responseBody?.success  == true){
+                        Constants.TOKEN = responseBody.data.accessToken
                         //TODO get the daha at place it
                         val intent = Intent(ctx, HomePage::class.java)
                         ctx.startActivity(intent)

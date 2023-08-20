@@ -301,42 +301,6 @@ class RegisterProductAddPhotosViewModel : ViewModel() {
         }
     }
 
-    fun loginUser(email: String, password: String, callback: LoginCallBack) {
-        try {
-            val retrofitBuilder = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.baseURL)
-                .build()
-                .create(APIRequest::class.java)
-
-            val request = AuthenticationLoginRequest(email, password)
-            val retrofitData = retrofitBuilder.login(request)
-
-            retrofitData.enqueue(object : Callback<AuthenticationLoginDataResponse> {
-                override fun onResponse(
-                    call: Call<AuthenticationLoginDataResponse>,
-                    response: Response<AuthenticationLoginDataResponse>
-                ) {
-                    val responseBody = response.body()
-
-                    if (responseBody?.success == true) {
-                        val token = responseBody.data?.accessToken ?: ""
-                        callback.onTokenReceived(token)
-                    } else {
-                        val errorMessage = responseBody?.message ?: "Unknown error"
-                        callback.onError(errorMessage)
-                    }
-                }
-
-                override fun onFailure(call: Call<AuthenticationLoginDataResponse>, t: Throwable) {
-                    callback.onError(t.message ?: "Unknown error")
-                }
-            })
-        } catch (e: Exception) {
-            callback.onError(e.message ?: "Unknown error")
-        }
-    }
-
     fun uploadImageToServer(productId: Int, token :String) {
         val retrofitBuilder = retrofitClient.createAPIRequestWithToken(token)
         val contentResolver = ctx.contentResolver

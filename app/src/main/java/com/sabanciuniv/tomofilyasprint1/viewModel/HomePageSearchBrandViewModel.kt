@@ -32,10 +32,10 @@ class HomePageSearchBrandViewModel : ViewModel() {
     fun setContext(ctx: HomePageSearchBrand) {
         this.ctx = ctx
         retrofitClient = RetrofitClient(ctx)
-        val email = (ctx as? Activity)?.findViewById<EditText>(R.id.login_email)?.text?.toString()
-        val password = (ctx as? Activity)?.findViewById<EditText>(R.id.login_pass)?.text?.toString()
+        //val email = (ctx as? Activity)?.findViewById<EditText>(R.id.login_email)?.text?.toString()
+        //val password = (ctx as? Activity)?.findViewById<EditText>(R.id.login_pass)?.text?.toString()
     }
-
+/*
     fun loginUser(email: String, password: String, callback: LoginCallBack) {
         try {
             val retrofitBuilder = Retrofit.Builder()
@@ -71,6 +71,8 @@ class HomePageSearchBrandViewModel : ViewModel() {
             callback.onError(e.message ?: "Unknown error")
         }
     }
+
+ */
 
     fun getBrands(token: String) {
         viewModelScope.launch(Dispatchers.IO) {

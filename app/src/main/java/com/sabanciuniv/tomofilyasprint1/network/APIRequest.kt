@@ -85,17 +85,6 @@ interface APIRequest {
 
     @Multipart
     @POST("/Product/ProductPhotosPost")
-    @Headers(Constants.api, Constants.multiContentType)
-    fun addPhotos(
-       //@Header("Content-Disposition") contentDisposition: MultipartBody, // Add this line
-       // @Part ("Product") Product : File,
-        @Part Product : MultipartBody.Part,
-        @Part("ProductId") ProductId: Int,
-        //@Part("ProductPhotoId") ProductPhotoId:Int
-    ): Call<ProductPostResponse>
-
-    @Multipart
-    @POST("/Product/ProductPhotosPost")
     @Headers(Constants.api)
     fun addPhotosWithBoundary(
         @Header("Authorization") bearerToken: String,
@@ -117,11 +106,6 @@ data class UserPostRequest(
 
 )
 
-data class ProductPhotosPostRequest(
-    //val photoId : Int,
-    val productId : Int,
-    val Product : File
-)
 
 data class GetCategoriesRequest(
     val isFilter : Boolean,

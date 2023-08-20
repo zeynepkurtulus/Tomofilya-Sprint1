@@ -80,22 +80,7 @@ class RegisterProductAddPhotos : AppCompatActivity() {
 
         binding.saveButtonPhoto.setOnClickListener {
             Log.e("prodID", productId.toString())
-            viewModel.loginUser(email, password, object : LoginCallBack {
-                override fun onTokenReceived(token: String) {
-                    if (token.isNotEmpty()) {
-                        Log.e("tag", "Token inside activity: $token")
-                        viewModel.uploadImageToServer(productId!!,token)
-                    } else {
-                        // Handle the case where the token is empty or login failed
-                        Log.e("tag", "Token is empty or login failed.")
-                    }
-                }
-
-                override fun onError(errorMessage: String) {
-                    // Handle the error case
-                    Log.e("tag", "Login error: $errorMessage")
-                }
-            })
+            viewModel.uploadImageToServer(productId!!,Constants.TOKEN)
         }
 
 

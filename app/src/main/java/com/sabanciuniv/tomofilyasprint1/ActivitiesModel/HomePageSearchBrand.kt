@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.sabanciuniv.tomofilyasprint1.R
 import com.sabanciuniv.tomofilyasprint1.databinding.ActivityHomePageSearchBrandBinding
+import com.sabanciuniv.tomofilyasprint1.network.Constants
 import com.sabanciuniv.tomofilyasprint1.network.SharedDataRepository
 import com.sabanciuniv.tomofilyasprint1.viewModel.HomePageSearchBrandViewModel
 import com.sabanciuniv.tomofilyasprint1.viewModel.LoginCallBack
@@ -27,6 +28,9 @@ class HomePageSearchBrand : AppCompatActivity() {
         Log.e("tag", "email inside activity: " + email)
         Log.e("tag", "pass inside activity: " + password)
 
+        viewModel.getBrands(Constants.TOKEN)
+
+        /*
             viewModel.loginUser(email, password, object : LoginCallBack {
                 override fun onTokenReceived(token: String) {
                     if (token.isNotEmpty()) {
@@ -43,6 +47,8 @@ class HomePageSearchBrand : AppCompatActivity() {
                     Log.e("tag", "Login error: $errorMessage")
                 }
             })
+
+         */
 
         binding.btnSaveBrand.setOnClickListener {
             val intent = Intent(this, HomePageItemRequest::class.java)
