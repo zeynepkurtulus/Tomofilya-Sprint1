@@ -149,7 +149,7 @@ class RegisterProductAddPhotosViewModel : ViewModel() {
             photo4Uri = uri!!
             c4 = true
         } else {
-            Toast.makeText(ctx, "no more photos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(ctx, ctx.getString(R.string.exceededPhotoLimit), Toast.LENGTH_SHORT).show()
         }
     }
 

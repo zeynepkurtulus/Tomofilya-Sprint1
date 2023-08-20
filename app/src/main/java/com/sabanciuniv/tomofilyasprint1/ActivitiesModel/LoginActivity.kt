@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel : LoginActivityViewModel
     private lateinit var binding : ActivityLoginBinding
+    val loading = ProgressBarDialog(this)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -42,8 +44,14 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        val loginbtn = findViewById<Button>(R.id.log_in_button)
         binding.logInButton.setOnClickListener {
+            loading.startLoading()
+            val handler = Handler()
+            handler.postDelayed(object :Runnable{
+                override fun run(){
+                    loading.isDismiss()
+                }
+            }, 5000)
             val login_email: String = binding.loginEmail.text.toString()
             sharedDataRepository.email = login_email
             val login_pass: String = binding.loginPass.text.toString()
@@ -63,46 +71,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, ForgotPassword::class.java))
             finish()
         }
-    }
-
-
-    private fun loginUser(email: String, password: String) : String{
-        var token = ""
-        try {
-            val retrofitBuilder = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.baseURL)
-                .build()
-                .create(APIRequest::class.java)
-            val request = AuthenticationLoginRequest(email, password)
-            val retrofitData = retrofitBuilder.login(request)
-            Log.e("Home process", "going...")
-            retrofitData.enqueue(object: Callback<AuthenticationLoginDataResponse> {
-                override fun onResponse(call: Call<AuthenticationLoginDataResponse>, response: Response<AuthenticationLoginDataResponse>) {
-
-                    val responseBody = response.body()
-
-                    Log.d("response body" , responseBody.toString())
-                    if(responseBody?.success  == true){
-                        token = responseBody?.data?.accessToken.toString()
-                    }
-                    else{
-                        Log.e("Login error)" , responseBody?.success.toString())
-                        Log.e("Login error)" , responseBody?.message.toString())
-
-                    }
-                }
-
-                override fun onFailure(call: Call<AuthenticationLoginDataResponse>, t: Throwable) {
-                    Log.e("Login error: ", t.toString())
-                }
-            })
-
-        } catch (e: Exception) {
-            Log.e("Login api error: ", e.toString())
-            // Handle the exception here (e.g. log it or display an error message)
-        }
-        return token
     }
 
 

@@ -5,11 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.ConfirmEmailWhenForgotPassword
-import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.HomePage
-import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.SplashActivity
-import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.WelcomePage
+import com.sabanciuniv.tomofilyasprint1.ActivitiesModel.*
 import com.sabanciuniv.tomofilyasprint1.R
 import com.sabanciuniv.tomofilyasprint1.network.APIRequest
 import com.sabanciuniv.tomofilyasprint1.network.AuthenticationLoginRequest
@@ -27,6 +25,7 @@ class LoginActivityViewModel (): ViewModel(){
 
     private lateinit var ctx: Context
     private lateinit var retrofitClient: RetrofitClient
+
     fun setContext(ctx: Context){
         this.ctx = ctx
         retrofitClient = RetrofitClient(ctx)
@@ -51,6 +50,8 @@ class LoginActivityViewModel (): ViewModel(){
                     else{
                         Log.e("Login error)" , responseBody?.success.toString())
                         Log.e("Login error)" , responseBody?.message.toString())
+                        val errorMessage = responseBody?.message.toString()
+                        Toast.makeText(ctx, errorMessage, Toast.LENGTH_LONG).show()
 
                     }
                 }

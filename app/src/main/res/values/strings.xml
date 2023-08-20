@@ -165,6 +165,7 @@
     <string name="hizmetBedeli">Hizmet Bedeli</string>
     <string name="addPhotos">Fotoğraf Ekle</string>
     <string name="galery">galeri</string>
+    <string name="exceededPhotoLimit">Maksimum fotoğraf limitine ulaştınız</string>
 
 
 </resources>
